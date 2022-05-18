@@ -1,0 +1,3 @@
+# Sudoku Graphic Creator
+
+## Instalation
