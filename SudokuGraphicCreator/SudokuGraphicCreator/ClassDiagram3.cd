@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SudokuGraphicCreator.Stores.NavigationStore">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEACAAAAAAIEAAAAAAAAAAAAAAAAAAQgAAAAAAAAA=</HashCode>
+      <FileName>Stores\NavigationStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Dialog.IOService">
+    <Position X="3.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAQAAAAAAAAAAAAAAABAAAQAAAAEEBA=</HashCode>
+      <FileName>Dialog\IOService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.App" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.BookletInformations" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\BookletInformations.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SelectLogoCommand">
+    <Position X="3.25" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQUAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\SelectLogoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Stores.BookletStore">
+    <Position X="5.75" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAACAQ=</HashCode>
+      <FileName>Stores\BookletStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CreatingBookletViewModel" Collapsed="true">
+    <Position X="0.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>wEQBAIADBhAFAgBikBJGEIEQKkkAIQNAAAEBAoAMBAU=</HashCode>
+      <FileName>ViewModel\CreatingBookletViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.ActionCommand">
+    <Position X="0.5" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ActionCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.BookletInformationsViewModel">
+    <Position X="3.25" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAIAAAAAEAgDCABIEEAAAAAMAAQAIAAEACgAIAAA=</HashCode>
+      <FileName>ViewModel\BookletInformationsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Booklet">
+    <Position X="6" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAAEAgCiABIEEAAAAAEBgAAAAAEACgAIAAA=</HashCode>
+      <FileName>Model\Booklet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.OkBookletInfoCommand">
+    <Position X="0.5" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQEEAAAQIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\OkBookletInfoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

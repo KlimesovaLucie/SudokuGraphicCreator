@@ -1,0 +1,338 @@
+﻿<Window
+    x:Class="SudokuGraphicCreator.View.InsertNewSudokuTable"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:language="clr-namespace:SudokuGraphicCreator.Properties.Resources"
+    xmlns:local="clr-namespace:SudokuGraphicCreator.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:SudokuGraphicCreator.ViewModel"
+    Title="{x:Static language:Resources.InsertNewSudokuTable}"
+    Width="700"
+    Height="450"
+    d:DataContext="{d:DesignInstance Type=viewModel:InsertNewSudokuTableViewModel}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="310" />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="{x:Static language:Resources.NameOfSudoku}" />
+            <TextBox
+                Grid.Row="1"
+                Margin="5,5,5,5"
+                Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Grid.Column="1" Content="{x:Static language:Resources.SudokuPoints}" />
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Width="100"
+                Margin="5,5,5,5"
+                HorizontalAlignment="Left"
+                Text="{Binding Points, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label Grid.Row="2" Content="{x:Static language:Resources.Type}" />
+
+            <RadioButton
+                Grid.Row="3"
+                Margin="5,5"
+                Content="{x:Static language:Resources.SupportedSudoku}"
+                IsChecked="{Binding IsSelectedSupported, UpdateSourceTrigger=PropertyChanged}" />
+            <Button
+                Grid.Row="4"
+                Width="180"
+                Height="25"
+                Margin="20,5"
+                Command="{Binding ChangeSelectVariantVisibilityCommand}"
+                Content="{x:Static language:Resources.MenuVariants}"
+                IsEnabled="{Binding IsSelectedSupported, UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox
+                Grid.Row="5"
+                Margin="20,5"
+                Content="{x:Static language:Resources.GenerateSolution}"
+                IsChecked="{Binding GenerateSolution, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding IsSelectedSupported, UpdateSourceTrigger=PropertyChanged}" />
+            <RadioButton
+                Grid.Row="6"
+                Margin="5,5"
+                Content="{x:Static language:Resources.UnsupportedSudoku}"
+                IsChecked="{Binding IsSelectedUnsupported, UpdateSourceTrigger=PropertyChanged}" />
+
+            <DockPanel
+                Grid.Row="4"
+                Grid.RowSpan="5"
+                Width="180"
+                Height="100"
+                Margin="35,35,35,0"
+                VerticalAlignment="Top"
+                Panel.ZIndex="2"
+                Background="White"
+                Visibility="{Binding SelectVariantsVisibility}">
+
+                <Border BorderBrush="Gray" BorderThickness="1">
+                    <ScrollViewer
+                        Height="100"
+                        VerticalAlignment="Top"
+                        VerticalScrollBarVisibility="Auto">
+                        <StackPanel Width="180">
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuClassic}"
+                                Content="{x:Static language:Resources.SudokuClassic}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuDiagonal}"
+                                Content="{x:Static language:Resources.SudokuDiagonal}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuWindoku}"
+                                Content="{x:Static language:Resources.SudokuWindoku}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuAntiknight}"
+                                Content="{x:Static language:Resources.SudokuAntiknight}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuNonconsecutive}"
+                                Content="{x:Static language:Resources.SudokuNonconsecutive}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuUntouchable}"
+                                Content="{x:Static language:Resources.SudokuUntouchable}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuDisjointGroups}"
+                                Content="{x:Static language:Resources.SudokuDisjointGroups}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuIrregular}"
+                                Content="{x:Static language:Resources.SudokuIrregular}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuSum}"
+                                Content="{x:Static language:Resources.SudokuSum}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuDifference}"
+                                Content="{x:Static language:Resources.SudokuDifference}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuConsecutive}"
+                                Content="{x:Static language:Resources.SudokuConsecutive}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuKropki}"
+                                Content="{x:Static language:Resources.SudokuKropki}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuGreaterThan}"
+                                Content="{x:Static language:Resources.SudokuGreaterThan}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuXV}"
+                                Content="{x:Static language:Resources.SudokuXV}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuOdd}"
+                                Content="{x:Static language:Resources.SudokuOdd}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuEven}"
+                                Content="{x:Static language:Resources.SudokuEven}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuStarProducts}"
+                                Content="{x:Static language:Resources.SudokuStarProducts}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuSearchNine}"
+                                Content="{x:Static language:Resources.SudokuSearchNine}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuPalindrome}"
+                                Content="{x:Static language:Resources.SudokuPalindrome}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuSequence}"
+                                Content="{x:Static language:Resources.SudokuSequence}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuArrow}"
+                                Content="{x:Static language:Resources.SudokuArrow}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuThermometer}"
+                                Content="{x:Static language:Resources.SudokuThermometer}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuExtraRegions}"
+                                Content="{x:Static language:Resources.SudokuExtraRegions}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuKiller}"
+                                Content="{x:Static language:Resources.SudokuKiller}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuLittleKiller}"
+                                Content="{x:Static language:Resources.SudokuLittleKiller}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuSkyscrapers}"
+                                Content="{x:Static language:Resources.SudokuSkyscrapers}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuNextToNine}"
+                                Content="{x:Static language:Resources.SudokuNextToNine}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                            <CheckBox
+                                Margin="5,5"
+                                Command="{Binding VariantCommand}"
+                                CommandParameter="{x:Static language:Resources.SudokuOutside}"
+                                Content="{x:Static language:Resources.SudokuOutside}"
+                                Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                        </StackPanel>
+                    </ScrollViewer>
+                </Border>
+            </DockPanel>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                Content="{x:Static language:Resources.SudokuRules}" />
+            <TextBox
+                Grid.Row="3"
+                Grid.RowSpan="4"
+                Grid.Column="1"
+                Width="300"
+                Margin="5,5,5,5"
+                AcceptsReturn="True"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                Text="{Binding Rules, UpdateSourceTrigger=PropertyChanged}"
+                TextWrapping="Wrap" />
+
+            <Label Grid.Row="7" Content="{x:Static language:Resources.SudokuGrid}" />
+            <Button
+                Grid.Row="8"
+                Width="150"
+                Margin="5,5,5,5"
+                HorizontalAlignment="Left"
+                Command="{Binding SelectFileCommand}"
+                CommandParameter="Table"
+                Content="{x:Static language:Resources.SelectFile}" />
+            <TextBlock
+                Grid.Row="9"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Text="{Binding SudokuTableName}" />
+
+            <Label
+                Grid.Row="7"
+                Grid.Column="1"
+                Content="{x:Static language:Resources.Solution}" />
+            <Button
+                Grid.Row="8"
+                Grid.Column="1"
+                Width="150"
+                Margin="5,5,5,5"
+                HorizontalAlignment="Left"
+                Command="{Binding SelectFileCommand}"
+                CommandParameter="Solution"
+                Content="{x:Static language:Resources.SelectFile}" />
+            <TextBlock
+                Grid.Row="9"
+                Grid.Column="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Text="{Binding SudokuSolutionName}" />
+
+            <StackPanel
+                Grid.Row="10"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Margin="5,5,5,5"
+                    Command="{Binding OkCommand}"
+                    Content="{x:Static language:Resources.Ok}" />
+                <Button
+                    Margin="5,5,5,5"
+                    Command="{Binding CancelCommand}"
+                    Content="{x:Static language:Resources.Cancel}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

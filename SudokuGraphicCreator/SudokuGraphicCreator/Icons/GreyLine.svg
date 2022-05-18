@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:odm="http://product.corel.com/CGS/11/cddns/" xmlns:corel-charset="http://product.corel.com/CGS/11/cddns/" xml:space="preserve" width="0.787402in" height="0.787402in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd"
+     viewBox="0 0 788 788">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#1F1A17;stroke-width:3}
+    .str1 {stroke:#AAA9A9;stroke-width:14;stroke-linejoin:round}
+    .fil0 {fill:none}
+    .fil1 {fill:#AAA9A9}
+   ]]>
+  </style>
+ </defs>
+<symbol id="153937120">
+ <path class="fil0 str0" d="M400 163l51 188 187 51 -187 51 -51 189 -51 -189 -187 -51 187 -51 51 -188zm25 94m119 120m0 51m-119 120m-50 0m-119 -120m0 -51m119 -120"/>
+</symbol>
+ <g id="Vrstva_x0020_1">
+  <path class="fil1 str1" d="M225 716l55 0c7,0 12,-4 12,-8l0 -229c0,-4 -5,-7 -12,-7l-55 0c-6,0 -12,3 -12,7l0 229c0,4 6,8 12,8z"/>
+  <path class="fil1 str1" d="M571 304l-32 -45c-3,-6 -11,-7 -16,-3l-303 212c-5,4 -7,11 -3,16l32 45c3,6 11,7 16,3l303 -212c5,-4 7,-11 3,-16z"/>
+  <path class="fil1 str1" d="M508 320l55 0c6,0 12,-3 12,-8l0 -228c0,-5 -6,-8 -12,-8l-55 0c-7,0 -12,3 -12,8l0 228c0,5 5,8 12,8z"/>
+ </g>
+</svg>

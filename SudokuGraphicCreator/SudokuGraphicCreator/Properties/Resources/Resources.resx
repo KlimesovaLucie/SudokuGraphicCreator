@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="BookletInformations" xml:space="preserve">
+    <value>Booklet informations</value>
+  </data>
+  <data name="BookletInformationsCategory" xml:space="preserve">
+    <value>Optional, example: main, U18 or O50.</value>
+  </data>
+  <data name="BookletInformationsLogoOne" xml:space="preserve">
+    <value>Placed in the top left corner of first booklet page.</value>
+  </data>
+  <data name="BookletInformationsLogoThree" xml:space="preserve">
+    <value>Placed in the left bottom corner of first booklet page.</value>
+  </data>
+  <data name="BookletInformationsLogoTwo" xml:space="preserve">
+    <value>Placed in the top right corner of first booklet page.</value>
+  </data>
+  <data name="BookletInformationsOrderNumber" xml:space="preserve">
+    <value>Enter number</value>
+  </data>
+  <data name="BookletInformationsTime" xml:space="preserve">
+    <value>Enter time for solving, example: 30 minutes</value>
+  </data>
+  <data name="CalculationProgress" xml:space="preserve">
+    <value>The calculation is in progress...</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="ClassicRulesShort" xml:space="preserve">
+    <value>Apply classic sudoku rules.</value>
+  </data>
+  <data name="ClassicSudokuRules" xml:space="preserve">
+    <value>Fill the grid with digits 1 to 9, so that each digit appears once in every row, column and outlined box.</value>
+  </data>
+  <data name="CorrectFormat" xml:space="preserve">
+    <value>Correct format</value>
+  </data>
+  <data name="CountOfSolutions" xml:space="preserve">
+    <value>CountOfSolutions</value>
+  </data>
+  <data name="CreatingSudokuLabelVariants" xml:space="preserve">
+    <value>Variants</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date:</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DeleteBookletPage" xml:space="preserve">
+    <value>Delete booklet page</value>
+  </data>
+  <data name="DeleteSudoku" xml:space="preserve">
+    <value>Delete sudoku</value>
+  </data>
+  <data name="DiagonalRules" xml:space="preserve">
+    <value>Same digits cannot repeat on the main diagonals.</value>
+  </data>
+  <data name="EditBooklet" xml:space="preserve">
+    <value>Edit booklet</value>
+  </data>
+  <data name="EditBookletInformations" xml:space="preserve">
+    <value>Edit booklet informations...</value>
+  </data>
+  <data name="ElemArrows" xml:space="preserve">
+    <value>Arrows</value>
+  </data>
+  <data name="ElemArrowWithCircle" xml:space="preserve">
+    <value>Arrow with circle</value>
+  </data>
+  <data name="ElemBlackCircle" xml:space="preserve">
+    <value>Black circle</value>
+  </data>
+  <data name="ElemBoldArrow" xml:space="preserve">
+    <value>Bold arrow</value>
+  </data>
+  <data name="ElemCage" xml:space="preserve">
+    <value>Cage</value>
+  </data>
+  <data name="ElemCharacters" xml:space="preserve">
+    <value>Characters</value>
+  </data>
+  <data name="ElemCircle" xml:space="preserve">
+    <value>Circle</value>
+  </data>
+  <data name="ElemCircleWithGreyEdge" xml:space="preserve">
+    <value>Circle with grey edge</value>
+  </data>
+  <data name="ElemCircleWithNumber" xml:space="preserve">
+    <value>Circle with number</value>
+  </data>
+  <data name="ElemGreyCell" xml:space="preserve">
+    <value>Grey cell</value>
+  </data>
+  <data name="ElemGreyCircle" xml:space="preserve">
+    <value>Grey circle</value>
+  </data>
+  <data name="ElemGrid" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="ElemLine" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="ElemLongArrow" xml:space="preserve">
+    <value>Long arrow</value>
+  </data>
+  <data name="ElemSmallArrow" xml:space="preserve">
+    <value>Small arrow</value>
+  </data>
+  <data name="ElemSquare" xml:space="preserve">
+    <value>Square</value>
+  </data>
+  <data name="ElemStar" xml:space="preserve">
+    <value>Star</value>
+  </data>
+  <data name="ElemWhiteCircle" xml:space="preserve">
+    <value>White circle</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ExportSolution" xml:space="preserve">
+    <value>Export solution</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FirstSudoku" xml:space="preserve">
+    <value>First sudoku</value>
+  </data>
+  <data name="GenerateAllGraphicElements" xml:space="preserve">
+    <value>generate all graphic elements</value>
+  </data>
+  <data name="GenerateSolution" xml:space="preserve">
+    <value>generate solution</value>
+  </data>
+  <data name="GivenNumbers" xml:space="preserve">
+    <value>Given numbers</value>
+  </data>
+  <data name="GraphicElemenets" xml:space="preserve">
+    <value>Graphic elements:</value>
+  </data>
+  <data name="Halt" xml:space="preserve">
+    <value>Halt</value>
+  </data>
+  <data name="IncorrectFormat" xml:space="preserve">
+    <value>Incorrect format</value>
+  </data>
+  <data name="InformationsForBookletTitle" xml:space="preserve">
+    <value>Competition booklet - basic informations</value>
+  </data>
+  <data name="InputString" xml:space="preserve">
+    <value>Input string</value>
+  </data>
+  <data name="InputStrings" xml:space="preserve">
+    <value>Input strings</value>
+  </data>
+  <data name="InsertGivenNumbers" xml:space="preserve">
+    <value>Insert given numbers</value>
+  </data>
+  <data name="InsertionGivenNumberTitle" xml:space="preserve">
+    <value>Insertion given numbers</value>
+  </data>
+  <data name="InsertionGraphicElements" xml:space="preserve">
+    <value>Insertion graphic elements and variants</value>
+  </data>
+  <data name="InsertionOfNewSudokuTable" xml:space="preserve">
+    <value>Insertion of new sudoku table</value>
+  </data>
+  <data name="InsertNewSudokuTable" xml:space="preserve">
+    <value>Insert new sudoku table</value>
+  </data>
+  <data name="InsertNumber" xml:space="preserve">
+    <value>Insert number</value>
+  </data>
+  <data name="InsertSolution" xml:space="preserve">
+    <value>Insert solution</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location:</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>Logo of competition</value>
+  </data>
+  <data name="MenuAboutApp" xml:space="preserve">
+    <value>About app...</value>
+  </data>
+  <data name="MenuCloseAll" xml:space="preserve">
+    <value>Close all</value>
+  </data>
+  <data name="MenuConfirmSelection" xml:space="preserve">
+    <value>Confirm selection</value>
+  </data>
+  <data name="MenuCountOfSolutions" xml:space="preserve">
+    <value>Count of solutions...</value>
+  </data>
+  <data name="MenuDeletePage" xml:space="preserve">
+    <value>Delete page...</value>
+  </data>
+  <data name="MenuDeleteSudoku" xml:space="preserve">
+    <value>Delete sudoku...</value>
+  </data>
+  <data name="MenuDown" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="MenuEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="MenuEditBooklet" xml:space="preserve">
+    <value>Edit booklet...</value>
+  </data>
+  <data name="MenuEditSudoku" xml:space="preserve">
+    <value>Edit sudoku...</value>
+  </data>
+  <data name="MenuEnd" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="MenuExport" xml:space="preserve">
+    <value>Export...</value>
+  </data>
+  <data name="MenuExportFileWIthSolutions" xml:space="preserve">
+    <value>Export file with solutions...</value>
+  </data>
+  <data name="MenuFile" xml:space="preserve">
+    <value>_File</value>
+  </data>
+  <data name="MenuGraphicElements" xml:space="preserve">
+    <value>Graphic elements</value>
+  </data>
+  <data name="MenuHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="MenuInsertElemAndVariants" xml:space="preserve">
+    <value>Insert graphic elements and variants...</value>
+  </data>
+  <data name="MenuInsertGivenNumbers" xml:space="preserve">
+    <value>Insert given numbers...</value>
+  </data>
+  <data name="MenuInsertGraphicElem" xml:space="preserve">
+    <value>Insert graphic elements...</value>
+  </data>
+  <data name="MenuInsertGraphicElement" xml:space="preserve">
+    <value>Insert graphic element</value>
+  </data>
+  <data name="MenuInsertNewPage" xml:space="preserve">
+    <value>Insert new page</value>
+  </data>
+  <data name="MenuInsertNewSudoku" xml:space="preserve">
+    <value>Insert new sudoku...</value>
+  </data>
+  <data name="MenuInsertNumber" xml:space="preserve">
+    <value>Insert number</value>
+  </data>
+  <data name="MenuInsertSolution" xml:space="preserve">
+    <value>Insert solution...</value>
+  </data>
+  <data name="MenuInsertVariant" xml:space="preserve">
+    <value>Insert variant</value>
+  </data>
+  <data name="MenuLeft" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="MenuLeftDown" xml:space="preserve">
+    <value>Down of the left</value>
+  </data>
+  <data name="MenuLeftUp" xml:space="preserve">
+    <value>Upper left</value>
+  </data>
+  <data name="MenuNew" xml:space="preserve">
+    <value>_New</value>
+  </data>
+  <data name="MenuNewSize" xml:space="preserve">
+    <value>New size...</value>
+  </data>
+  <data name="MenuNewWindow" xml:space="preserve">
+    <value>New window</value>
+  </data>
+  <data name="MenuOpen" xml:space="preserve">
+    <value>Open...</value>
+  </data>
+  <data name="MenuPanelWithGraphicElements" xml:space="preserve">
+    <value>Panel with graphic elements</value>
+  </data>
+  <data name="MenuPanelWithVariants" xml:space="preserve">
+    <value>Panel with variants</value>
+  </data>
+  <data name="MenuRedo" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="MenuResetGrid" xml:space="preserve">
+    <value>Reset regions</value>
+  </data>
+  <data name="MenuResetSelection" xml:space="preserve">
+    <value>Reset selection</value>
+  </data>
+  <data name="MenuRight" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="MenuRightDown" xml:space="preserve">
+    <value>Down of the right</value>
+  </data>
+  <data name="MenuRightUp" xml:space="preserve">
+    <value>Upper right</value>
+  </data>
+  <data name="MenuSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="MenuSaveAs" xml:space="preserve">
+    <value>Save as...</value>
+  </data>
+  <data name="MenuSelectRegion" xml:space="preserve">
+    <value>Selection of region</value>
+  </data>
+  <data name="MenuShowHelp" xml:space="preserve">
+    <value>Show help...</value>
+  </data>
+  <data name="MenuSudokuArrowOverCells" xml:space="preserve">
+    <value>Sudoku with arrow over cells</value>
+  </data>
+  <data name="MenuSudokuCage" xml:space="preserve">
+    <value>Sudoku with cages</value>
+  </data>
+  <data name="MenuSudokuElemenetBetweenTwoCells" xml:space="preserve">
+    <value>Sudoku with element between two cells</value>
+  </data>
+  <data name="MenuSudokuElementInCell" xml:space="preserve">
+    <value>Sudoku with element in cell</value>
+  </data>
+  <data name="MenuSudokuGraphicUnique" xml:space="preserve">
+    <value>Sudoku graphic unique</value>
+  </data>
+  <data name="MenuSudokuGreyCells" xml:space="preserve">
+    <value>Sudoku with grey cells</value>
+  </data>
+  <data name="MenuSudokuIrregular" xml:space="preserve">
+    <value>Sudoku with irregular grid</value>
+  </data>
+  <data name="MenuSudokuLikeClassic" xml:space="preserve">
+    <value>Sudoku looking like classic sudoku</value>
+  </data>
+  <data name="MenuSudokuLineOverCells" xml:space="preserve">
+    <value>Sudoku with line over cells</value>
+  </data>
+  <data name="MenuSudokuNumberAroundGrid" xml:space="preserve">
+    <value>Sudoku with numbers around grid</value>
+  </data>
+  <data name="MenuUndo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="MenuUp" xml:space="preserve">
+    <value>Nahoru</value>
+  </data>
+  <data name="MenuV" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="MenuVariants" xml:space="preserve">
+    <value>Variants</value>
+  </data>
+  <data name="MenuView" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="MenuWindow" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="MenuX" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>more</value>
+  </data>
+  <data name="NameOfCompetition" xml:space="preserve">
+    <value>Name of competition:</value>
+  </data>
+  <data name="NameOfPlayer" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="NameOfRound" xml:space="preserve">
+    <value>Name of round:</value>
+  </data>
+  <data name="NameOfSudoku" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="NewBooklet" xml:space="preserve">
+    <value>New booklet</value>
+  </data>
+  <data name="NewPage" xml:space="preserve">
+    <value>New page</value>
+  </data>
+  <data name="NewTable" xml:space="preserve">
+    <value>New table</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OrdinalNumberOfRound" xml:space="preserve">
+    <value>Ordinal number of round:</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Page</value>
+  </data>
+  <data name="Point" xml:space="preserve">
+    <value>point</value>
+  </data>
+  <data name="Points" xml:space="preserve">
+    <value>points</value>
+  </data>
+  <data name="PointsMiddle" xml:space="preserve">
+    <value>points</value>
+  </data>
+  <data name="PointsOfPlayer" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="PreviewSolution" xml:space="preserve">
+    <value>Solution preview</value>
+  </data>
+  <data name="Round" xml:space="preserve">
+    <value>round</value>
+  </data>
+  <data name="RulesAntiknight" xml:space="preserve">
+    <value>Every two cells in the knight step cannot contain the same digit.</value>
+  </data>
+  <data name="RulesArrows" xml:space="preserve">
+    <value>The number in the circle is the sum of all numbers along the corresponding arrow.</value>
+  </data>
+  <data name="RulesConsecutive" xml:space="preserve">
+    <value>With small circles are marked all pairs of adjacent consecutive numbers.</value>
+  </data>
+  <data name="RulesDifference" xml:space="preserve">
+    <value>The number in a circle tells the difference between the two adjacent numbers.</value>
+  </data>
+  <data name="RulesDisjointGroups" xml:space="preserve">
+    <value>Every 9 cells in the same position in outlined boxes contain numbers 1 to 9.</value>
+  </data>
+  <data name="RulesEven" xml:space="preserve">
+    <value>Numbers in cells with circles are even.</value>
+  </data>
+  <data name="RulesExtraRegions" xml:space="preserve">
+    <value>Same numbers cannot repeat in grey regions.</value>
+  </data>
+  <data name="RulesGreaterThan" xml:space="preserve">
+    <value>All numbers have to comply with given inequality signs.</value>
+  </data>
+  <data name="RulesIrregular" xml:space="preserve">
+    <value>Fill the grid with digits 1 to 9, so that each digit appears once in every row, column and outlined box.</value>
+  </data>
+  <data name="RulesKiller" xml:space="preserve">
+    <value>In the grid are placed cages. For every cage is given the sum of all numbers in the cage. Moreover, numbers in the cage cannot repeat.</value>
+  </data>
+  <data name="RulesKropki" xml:space="preserve">
+    <value>All pairs of two neighboring numbers where one number is double the size of the second number are marked with a black circle. All pairs of two neighboring numbers where their difference is one are marked with a white circle. Between numbers 1 and 2 is placed black circle.</value>
+  </data>
+  <data name="RulesLittleKiller" xml:space="preserve">
+    <value>Same digits cannot repeat on the main diagonals. Numbers around the grid tell the sum of all numbers along the corresponding diagonal in the direction of the arrow. Numbers in these sums can repeat.</value>
+  </data>
+  <data name="RulesNextToNine" xml:space="preserve">
+    <value>Numbers around the grid are neighbours of the number nine in a given row, column. Numbers are given by number size.</value>
+  </data>
+  <data name="RulesNonconsecutive" xml:space="preserve">
+    <value>Every two adjacent cells cannot contain consecutive numbers.</value>
+  </data>
+  <data name="RulesOdd" xml:space="preserve">
+    <value>Numbers in cells with squares are odd.</value>
+  </data>
+  <data name="RulesOutside" xml:space="preserve">
+    <value>Numbers around the grid are placed among the first three numbers from the edge in the given direction.</value>
+  </data>
+  <data name="RulesPalindromes" xml:space="preserve">
+    <value>Numbers along the grey lines create palindromes.</value>
+  </data>
+  <data name="RulesSearchNine" xml:space="preserve">
+    <value>Every arrow shows the direction in which the corresponding row or column placed number nine. Moreover, the number in the cell with the arrow tells the count of steps to this nine.</value>
+  </data>
+  <data name="RulesSequences" xml:space="preserve">
+    <value>Numbers along the grey lines create sequences. From one end always increases by the same step.</value>
+  </data>
+  <data name="RulesSkyscrapers" xml:space="preserve">
+    <value>Numbers in the grid present skyscrapers. Numbers around the grid tell the count of visible skyscrapers in a given direction. A higher skyscraper hides all the lower skyscrapers behind him.</value>
+  </data>
+  <data name="RulesStarProduct" xml:space="preserve">
+    <value>Numbers around the grid tell the product of all numbers in cells with a star in a given row or column.</value>
+  </data>
+  <data name="RulesSum" xml:space="preserve">
+    <value>The number in a circle tells the sum between the two adjacent numbers.</value>
+  </data>
+  <data name="RulesThermometers" xml:space="preserve">
+    <value>Numbers along with the thermometer increase (not necessarily by 1) in the direction from bulb to the opposite end.</value>
+  </data>
+  <data name="RulesUntouchable" xml:space="preserve">
+    <value>Same numbers cannot touch and not with corners.</value>
+  </data>
+  <data name="RulesXVSudoku" xml:space="preserve">
+    <value>All pairs of two neighboring numbers with sum 5 are marked with V and all pairs of two neighboring numbers with sum 10 are marked with X.</value>
+  </data>
+  <data name="SecondSudoku" xml:space="preserve">
+    <value>Second sudoku</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value>Select file</value>
+  </data>
+  <data name="SizeOfGrid" xml:space="preserve">
+    <value>Size of grid</value>
+  </data>
+  <data name="Solution" xml:space="preserve">
+    <value>Solution:</value>
+  </data>
+  <data name="SolutionCalculation" xml:space="preserve">
+    <value>Calculation of solution</value>
+  </data>
+  <data name="SolutionPlural" xml:space="preserve">
+    <value>solutions</value>
+  </data>
+  <data name="SolutionSingular" xml:space="preserve">
+    <value>solution</value>
+  </data>
+  <data name="StartScreenButtonCreateBooklet" xml:space="preserve">
+    <value>Create booklet</value>
+  </data>
+  <data name="StartScreenButtonCreateSudoku" xml:space="preserve">
+    <value>Create sudoku</value>
+  </data>
+  <data name="StartScreenButtonOpenBooklet" xml:space="preserve">
+    <value>Open booklet</value>
+  </data>
+  <data name="StartScreenButtonOpenSudoku" xml:space="preserve">
+    <value>Open sudoku</value>
+  </data>
+  <data name="Sudoku" xml:space="preserve">
+    <value>Sudoku</value>
+  </data>
+  <data name="SudokuAntiknight" xml:space="preserve">
+    <value>Antiknight</value>
+  </data>
+  <data name="SudokuArrow" xml:space="preserve">
+    <value>Arrow Sudoku</value>
+  </data>
+  <data name="SudokuBlackKropki" xml:space="preserve">
+    <value>Black Kropki</value>
+  </data>
+  <data name="SudokuClassic" xml:space="preserve">
+    <value>Classic sudoku</value>
+  </data>
+  <data name="SudokuConsecutive" xml:space="preserve">
+    <value>Consecutive</value>
+  </data>
+  <data name="SudokuDiagonal" xml:space="preserve">
+    <value>Diagonal</value>
+  </data>
+  <data name="SudokuDifference" xml:space="preserve">
+    <value>Difference</value>
+  </data>
+  <data name="SudokuDisjointGroups" xml:space="preserve">
+    <value>Disjoint groups</value>
+  </data>
+  <data name="SudokuEven" xml:space="preserve">
+    <value>Even</value>
+  </data>
+  <data name="SudokuExtraRegions" xml:space="preserve">
+    <value>Extra Regions Sudoku</value>
+  </data>
+  <data name="SudokuGreaterThan" xml:space="preserve">
+    <value>Greater Than</value>
+  </data>
+  <data name="SudokuGrid" xml:space="preserve">
+    <value>Sudoku grid:</value>
+  </data>
+  <data name="SudokuHas" xml:space="preserve">
+    <value>Sudoku has</value>
+  </data>
+  <data name="SudokuIrregular" xml:space="preserve">
+    <value>Irregular</value>
+  </data>
+  <data name="SudokuKiller" xml:space="preserve">
+    <value>Killer</value>
+  </data>
+  <data name="SudokuKropki" xml:space="preserve">
+    <value>Kropki</value>
+  </data>
+  <data name="SudokuLittleKiller" xml:space="preserve">
+    <value>Little Killer Sudoku</value>
+  </data>
+  <data name="SudokuNextToNine" xml:space="preserve">
+    <value>Next To Nine</value>
+  </data>
+  <data name="SudokuNonconsecutive" xml:space="preserve">
+    <value>Nonconsecutive</value>
+  </data>
+  <data name="SudokuOdd" xml:space="preserve">
+    <value>Odd</value>
+  </data>
+  <data name="SudokuOutside" xml:space="preserve">
+    <value>Outside sudoku</value>
+  </data>
+  <data name="SudokuPalindrome" xml:space="preserve">
+    <value>Palindrome</value>
+  </data>
+  <data name="SudokuPoints" xml:space="preserve">
+    <value>Points:</value>
+  </data>
+  <data name="SudokuRules" xml:space="preserve">
+    <value>Rules:</value>
+  </data>
+  <data name="SudokuSearchNine" xml:space="preserve">
+    <value>Search Nine</value>
+  </data>
+  <data name="SudokuSequence" xml:space="preserve">
+    <value>Sequence</value>
+  </data>
+  <data name="SudokuSizeWindowTitle" xml:space="preserve">
+    <value>Grid size</value>
+  </data>
+  <data name="SudokuSkyscrapers" xml:space="preserve">
+    <value>Skyscrapers</value>
+  </data>
+  <data name="SudokuStarProducts" xml:space="preserve">
+    <value>Star Products</value>
+  </data>
+  <data name="SudokuSum" xml:space="preserve">
+    <value>Sum</value>
+  </data>
+  <data name="SudokuThermometer" xml:space="preserve">
+    <value>Thermometers</value>
+  </data>
+  <data name="SudokuUntouchable" xml:space="preserve">
+    <value>Untouchable</value>
+  </data>
+  <data name="SudokuWhiteKropki" xml:space="preserve">
+    <value>White Kropki</value>
+  </data>
+  <data name="SudokuWindoku" xml:space="preserve">
+    <value>Windoku</value>
+  </data>
+  <data name="SudokuXV" xml:space="preserve">
+    <value>XV sudoku</value>
+  </data>
+  <data name="SupportedSudoku" xml:space="preserve">
+    <value>Supported sudoku</value>
+  </data>
+  <data name="TimeForSolving" xml:space="preserve">
+    <value>Time for solving:</value>
+  </data>
+  <data name="TotalPoints" xml:space="preserve">
+    <value>Total points: </value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="UnsupportedSudoku" xml:space="preserve">
+    <value>Unsupported sudoku</value>
+  </data>
+  <data name="WindokuRules" xml:space="preserve">
+    <value>Each grey region contains digits 1 to 9.</value>
+  </data>
+  <data name="WithGivenNumbers" xml:space="preserve">
+    <value>with given numbers</value>
+  </data>
+  <data name="WithoutGivenNumbers" xml:space="preserve">
+    <value>without given numbers</value>
+  </data>
+</root>

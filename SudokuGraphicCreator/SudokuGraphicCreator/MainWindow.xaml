@@ -1,0 +1,38 @@
+﻿<Window
+    x:Class="SudokuGraphicCreator.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SudokuGraphicCreator"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:SudokuGraphicCreator.ViewModel"
+    xmlns:views="clr-namespace:SudokuGraphicCreator.View"
+    Title="Sudoku Graphic Creator"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance Type=viewModels:MainWindowViewModel}"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{materialDesign:MaterialDesignFont}"
+    SizeChanged="Window_SizeChanged"
+    TextElement.FontSize="14"
+    TextElement.FontWeight="Normal"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:StartScreenViewModel}">
+            <views:StartScreen />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:CreatingSudokuViewModel}">
+            <views:CreatingSudoku CellCommand="{Binding CellActionCommand}" KeyPressCommand="{Binding InputFromKeyboardCommand}" />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:CreatingBookletViewModel}">
+            <views:CreatingBooklet />
+        </DataTemplate>
+
+
+    </Window.Resources>
+    <ContentControl x:Name="actualView" Content="{Binding SelectedViewModel}" />
+</Window>

@@ -1,0 +1,28 @@
+﻿<Window
+    x:Class="SudokuGraphicCreator.View.AboutApp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SudokuGraphicCreator.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="O aplikaci"
+    Width="400"
+    Height="200"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="22"
+                    FontWeight="Bold"
+                    Text="SudokuGraphicCreator" />
+            </StackPanel>
+            <TextBlock HorizontalAlignment="Center" Text="Verze: 1.0.0" />
+            <TextBlock HorizontalAlignment="Center" Text="2022" />
+            <TextBlock HorizontalAlignment="Center" Text="Lucie Klimešová" />
+        </StackPanel>
+    </Grid>
+</Window>

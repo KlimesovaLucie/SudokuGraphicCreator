@@ -1,0 +1,1227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SudokuGraphicCreator.Properties.Resources.Resources" Collapsed="true">
+    <Position X="105.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KK5s4TPv8dfb8JK083oHv+Sp37VJMq/bO6XJMn8xud4=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.ActionCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="101.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ActionCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.BaseCommand" Collapsed="true">
+    <Position X="34.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Commands\BaseCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.BookletEditCommand" Collapsed="true">
+    <Position X="15.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAEAAAAAAAAAAQAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Commands\BookletEditCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.BookletExportCommand" Collapsed="true">
+    <Position X="22.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAIAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Commands\BookletExportCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.BookletInfoWindowCommand" Collapsed="true">
+    <Position X="29.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\BookletInfoWindowCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.CancelCommand" Collapsed="true">
+    <Position X="36" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\CancelCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.ConfirmCommand" Collapsed="true">
+    <Position X="42.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAQAEgBQAARQBAAQIAACAEgBQAAECAAAACEAIAA=</HashCode>
+      <FileName>Commands\ConfirmCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.CountSolutionCommand" Collapsed="true">
+    <Position X="47.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAIACAQAAAIgIAAAAAAAAAQAAEAACAAAAAk=</HashCode>
+      <FileName>Commands\CountSolutionCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.CreateNewBookletCommand" Collapsed="true">
+    <Position X="51.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\CreateNewBookletCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.CreateSudokuButtonsCommand" Collapsed="true">
+    <Position X="56.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAQwAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\CreateSudokuButtonsCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.DeletePageCommand" Collapsed="true">
+    <Position X="60.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAAAACAAAAAAAAAAAEAAAAQ=</HashCode>
+      <FileName>Commands\DeletePageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.ElementButtonCommand" Collapsed="true">
+    <Position X="65.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAUQAAAAAAAAAAAAAAAAAAAAAAIAgAA=</HashCode>
+      <FileName>Commands\ElementButtonCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.ExportSudokuImageCommand" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\ExportSudokuImageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.FilterButtonCommand" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAAEACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\FilterButtonCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.KeyboardCommand" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEhByAQgBAgAAQQAIBkAIgsAEIEAUJAmQIICBAgAAU=</HashCode>
+      <FileName>Commands\KeyboardCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.LoadCreateSudokuCommand" Collapsed="true">
+    <Position X="18" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAAAAAAAEAEABQwAIAQEgBABIIAAxAABgAAAAAAAAA=</HashCode>
+      <FileName>Commands\LoadCreateSudokuCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.NavigateCommand" Collapsed="true">
+    <Position X="24.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\NavigateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.NewBookletPageCommand" Collapsed="true">
+    <Position X="31.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAEAAAAIAAAAAQAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Commands\NewBookletPageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.NewSudokuTableBookletCommand" Collapsed="true">
+    <Position X="38.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACQAAAABAQQAECAAAMgAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\NewSudokuTableBookletCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.NextBookletPageCommand" Collapsed="true">
+    <Position X="45" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAQQAFAAAAIAQAAgQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\NextBookletPageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.OkBookletInfoCommand" Collapsed="true">
+    <Position X="49.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQEECAAQIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\OkBookletInfoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.OkSudokuTableCommand" Collapsed="true">
+    <Position X="54" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAABAAAAAIAAAQAAECAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\OkSudokuTableCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.PreviousBookletPageCommand" Collapsed="true">
+    <Position X="58.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAQQAEAAAAIAQAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\PreviousBookletPageCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.RulesCommand" Collapsed="true">
+    <Position X="63" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAQAAAAAAIAAAAAAAQAAAAABAAQAAAA=</HashCode>
+      <FileName>Commands\RulesCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SelectedCellCommand" Collapsed="true">
+    <Position X="67.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>cRBExCQFUZFEYgwyABCRIhkASYgxGQAARAWAKYABACQ=</HashCode>
+      <FileName>Commands\SelectedCellCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SelectFileNewSudokuCommand" Collapsed="true">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQUAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\SelectFileNewSudokuCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SelectLogoCommand" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQUAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\SelectLogoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SudokuDeleteCommand" Collapsed="true">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAQQAAEAAAAAAAAAAAAAAAAAALEAAAAQ=</HashCode>
+      <FileName>Commands\SudokuDeleteCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SudokuDeleteWindowCommand" Collapsed="true">
+    <Position X="20.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAEAAAAAAAAAAQAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Commands\SudokuDeleteWindowCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SudokuEditCommand" Collapsed="true">
+    <Position X="27" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAEAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands\SudokuEditCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.SudokuPageDeleteWindowCommand" Collapsed="true">
+    <Position X="33.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAEAAAAAAAAAAQAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Commands\SudokuPageDeleteWindowCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Commands.VariantCheckBoxCommand" Collapsed="true">
+    <Position X="40.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAAAAAAAAAAAAQQQIIBAECEAAAAAAECAAgAAIBAAAA=</HashCode>
+      <FileName>Commands\VariantCheckBoxCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Convertor.AngleConvertor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="103.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertor\AngleConvertor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Convertor.CircleNumberConvertor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="114" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertor\CircleNumberConvertor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Convertor.NumberConvertor" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="110.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertor\NumberConvertor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Convertor.SudokuInBookletDescriptionConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="108.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Convertor\SudokuInBookletDescriptionConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Dialog.DialogCloseRequestedEventArgs" Collapsed="true">
+    <Position X="101.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialog\DialogCloseRequestedEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Dialog.DialogService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="103.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Dialog\DialogService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.Dialog.IOService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="103.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialog\IOService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.IO.OpenBooklet" Collapsed="true">
+    <Position X="112.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IO\OpenBooklet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.IO.PdfBooklet" Collapsed="true">
+    <Position X="114" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAFAMEBAbAEICAMkAGAAAEQCwQSAAAASAAhBAAAA=</HashCode>
+      <FileName>IO\PdfBooklet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.IO.PdfSolution" Collapsed="true">
+    <Position X="101.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAABIAAAIAAAAAAKCAQQCEAAAAAgAAAA=</HashCode>
+      <FileName>IO\PdfSolution.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.IO.SaveBooklet" Collapsed="true">
+    <Position X="107" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IO\SaveBooklet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.IO.SudokuImage" Collapsed="true">
+    <Position X="105.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IO\SudokuImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.IO.SudokuSvgImage" Collapsed="true">
+    <Position X="114" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JGxBESAAliAcCyZiARCZAAiES0SNAQpAFQKCKIMgMK0=</HashCode>
+      <FileName>IO\SudokuSvgImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.IO.SvgImageImport" Collapsed="true">
+    <Position X="103.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAICAABAGAABGAgBABAAAJEBACAQAEFMAyQAAACAg=</HashCode>
+      <FileName>IO\SvgImageImport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.BlackCircle" Collapsed="true">
+    <Position X="14" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\BlackCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.BoldArrow" Collapsed="true">
+    <Position X="11.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\BoldArrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Booklet" Collapsed="true">
+    <Position X="107" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAAEAgCiABIEEAAAAAEBgAAAAAEACgAIAAA=</HashCode>
+      <FileName>Model\Booklet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.BookletPage" Collapsed="true">
+    <Position X="110.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Model\BookletPage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Cage" Collapsed="true">
+    <Position X="7.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Cage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Circle" Collapsed="true">
+    <Position X="18.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\Circle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.CircleWithGreyEdge" Collapsed="true">
+    <Position X="18.5" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CircleWithGreyEdge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.CircleWithNumber" Collapsed="true">
+    <Position X="20.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Model\CircleWithNumber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.GreyCell" Collapsed="true">
+    <Position X="32" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\GreyCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.GreyCircle" Collapsed="true">
+    <Position X="23" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GreyCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.GreySquare" Collapsed="true">
+    <Position X="34.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\GreySquare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Character" Collapsed="true">
+    <Position X="9.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Line" Collapsed="true">
+    <Position X="2.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.LongArrow" Collapsed="true">
+    <Position X="5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\LongArrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.LongArrowWithCircle" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAggAAAAAAA=</HashCode>
+      <FileName>Model\LongArrowWithCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.MultipleSpaceElement" Collapsed="true">
+    <Position X="5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MultipleSpaceElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Number" Collapsed="true">
+    <Position X="25.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Model\Number.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.OneSpaceElement" Collapsed="true">
+    <Position X="22" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAIAAAAAAAAIAAAAiAAAAAAAAAA=</HashCode>
+      <FileName>Model\OneSpaceElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.SmallArrow" Collapsed="true">
+    <Position X="27.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAgAAAA=</HashCode>
+      <FileName>Model\SmallArrow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Star" Collapsed="true">
+    <Position X="29.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Model\Star.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.Sudoku" Collapsed="true">
+    <Position X="101.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEBhABAQQAAAAAAFABAAAAAAAACAAAAAAAAAABACA=</HashCode>
+      <FileName>Model\Sudoku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.SudokuElement" Collapsed="true">
+    <Position X="17.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SudokuElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.SudokuGrid" Collapsed="true">
+    <Position X="103.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAEAAAAACQAAAAAAAAAIAAwA=</HashCode>
+      <FileName>Model\SudokuGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.SudokuInBooklet" Collapsed="true">
+    <Position X="107" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkEAABAQAABEgAAEAAAAQAQAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Model\SudokuInBooklet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Model.WhiteCircle" Collapsed="true">
+    <Position X="16.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\WhiteCircle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Rules.SolveSudoku" Collapsed="true">
+    <Position X="112.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQQAAoBQADEiAwAAEAAgCEAIAQIgAAAIEEIQ4AIBAAI=</HashCode>
+      <FileName>Rules\SolveSudoku.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Rules.SudokuRules" Collapsed="true">
+    <Position X="110.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UCHCXuQIkBpMlJ9IchaOApXgyMnkeuEgMhGMP0KGAKs=</HashCode>
+      <FileName>Rules\SudokuRules.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Stores.BookletStore" Collapsed="true">
+    <Position X="112.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAACAQ=</HashCode>
+      <FileName>Stores\BookletStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Stores.GridSizeStore" Collapsed="true">
+    <Position X="108.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAACAAAAAAAAgAAAAEgABAAAAAwAAQAAEAEBAEAA=</HashCode>
+      <FileName>Stores\GridSizeStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Stores.NavigationStore" Collapsed="true">
+    <Position X="108.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEACAAAAAAIEAAAAAAAAAAAAAAAAAAQgAAAAAAAAA=</HashCode>
+      <FileName>Stores\NavigationStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Stores.SudokuStore" Collapsed="true">
+    <Position X="112.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAABAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Stores\SudokuStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.Stores.VariantGraphicElementStore" Collapsed="true">
+    <Position X="107" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAADAAAAAAAAAAAAAAAAABAAAAAAARAAAAAAAQAA=</HashCode>
+      <FileName>Stores\VariantGraphicElementStore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.BookletInformations" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="108.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\BookletInformations.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.CountOfSolutions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="101.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CountOfSolutions.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.CreateSudokuSize" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="103.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CreateSudokuSize.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.CreatingBooklet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="105.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\CreatingBooklet.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.CreatingSudoku" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="107" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQCAIAAAgAAAAAAAMAAAAAAAAAAA=</HashCode>
+      <FileName>View\CreatingSudoku.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.DeleteSudokuPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="108.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\DeleteSudokuPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.DeleteSudokuTable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="112.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\DeleteSudokuTable.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.EditBooklet" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="105.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\EditBooklet.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.EditSudokuTable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="107" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\EditSudokuTable.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.InsertGivenNumbers" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="110.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\InsertGivenNumbers.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.InsertGraphicElements" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="112.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\InsertGraphicElements.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.InsertNewSudokuTable" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="114" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\InsertNewSudokuTable.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.InsertSolution" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="101.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\InsertSolution.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.Menu" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="107" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Menu.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.SolutionPreview" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="110.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SolutionPreview.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.View.StartScreen" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="114" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\StartScreen.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.BaseViewModel" Collapsed="true">
+    <Position X="51.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.BlackCircleViewModel" Collapsed="true">
+    <Position X="57.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAAAABEAAAAACAQACAAAQAAAAEAA=</HashCode>
+      <FileName>ViewModel\BlackCircleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.BoldArrowViewModel" Collapsed="true">
+    <Position X="37.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhAAAAAABABAgAIAAgAABBAAAAAKCQACCAAQQIAAEAA=</HashCode>
+      <FileName>ViewModel\BoldArrowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.BookletInformationsViewModel" Collapsed="true">
+    <Position X="19.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAAIAAAAAEAgDCABIEEAAAAAEAAQAIAAEACgAIAAA=</HashCode>
+      <FileName>ViewModel\BookletInformationsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CageViewModel" Collapsed="true">
+    <Position X="42" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgAACBAgAiEAACgIADBAAkgACAQgKAEASiAAAEAA=</HashCode>
+      <FileName>ViewModel\CageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CellNumberViewModel" Collapsed="true">
+    <Position X="26.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAFAAAAAQAAGAAAEAAACAIAAEIiQEgAQAAIAA=</HashCode>
+      <FileName>ViewModel\CellNumberViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CellViewModel" Collapsed="true">
+    <Position X="51" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAABAAIAAAAABAAAEQAAAAIAAEICAAgCAAAIAA=</HashCode>
+      <FileName>ViewModel\CellViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CircleViewModel">
+    <Position X="56.5" Y="6.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAAAAAAgAAAEAAAAgICAEACAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\CircleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CircleWithGreyEdgeViewModel" Collapsed="true">
+    <Position X="60" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAACAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\CircleWithGreyEdgeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CircleWithNumberViewModel" Collapsed="true">
+    <Position X="67.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAkAABEAAAAAKCQECCAAwAAAAEAA=</HashCode>
+      <FileName>ViewModel\CircleWithNumberViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ClassicLineViewModel" Collapsed="true">
+    <Position X="72.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAIAAAADAAAAAIABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ClassicLineViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CountOfSolutionsViewModel" Collapsed="true">
+    <Position X="92.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAQAACAAIAABIEAAAEAAAAAAABAAIABQQCAAAAAA=</HashCode>
+      <FileName>ViewModel\CountOfSolutionsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CreateSudokuSizeViewModel" Collapsed="true">
+    <Position X="97" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABQAAAgAAAAAgBAAAAKAAAAAAAEAAA=</HashCode>
+      <FileName>ViewModel\CreateSudokuSizeViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CreatingBookletViewModel" Collapsed="true">
+    <Position X="3.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEQBAIADBhAFAgBikBJGEIEAIkEAIQNAAAEBAgAIBAU=</HashCode>
+      <FileName>ViewModel\CreatingBookletViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CreatingSudokuViewModel" Collapsed="true">
+    <Position X="8.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>sRIAIQCDUUOmnbu4g4O4cnoxhKIjCxFVhkERQIYiAEg=</HashCode>
+      <FileName>ViewModel\CreatingSudokuViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.DeleteSudokuPageViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="110.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAgAAAAAAAFgIAAAAAAAgAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ViewModel\DeleteSudokuPageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.DeleteSudokuTableViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="114" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAEAAAAAAAAFQIAgAAAAAgAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\DeleteSudokuTableViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.EditBookletViewModel" Collapsed="true">
+    <Position X="24" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgIACAAAgJwAAgAAAAAAEAAAAAIIAAAAAAAABA=</HashCode>
+      <FileName>ViewModel\EditBookletViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.EditSudokuTableViewModel" Collapsed="true">
+    <Position X="10.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\EditSudokuTableViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ElementButton" Collapsed="true">
+    <Position X="82.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAUAAEAAAAQAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ElementButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ElementButtonConfirm" Collapsed="true">
+    <Position X="81.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ElementButtonConfirm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ElementButtonGraphicOptions" Collapsed="true">
+    <Position X="83.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ElementButtonGraphicOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ElementButtonOption" Collapsed="true">
+    <Position X="85.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAUAAEAAEAQAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ElementButtonOption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ElementControl" Collapsed="true">
+    <Position X="84.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAACAIAAAA=</HashCode>
+      <FileName>ViewModel\ElementControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ElementCheckBox" Collapsed="true">
+    <Position X="88" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAIAUAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ElementCheckBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.GreyCellViewModel" Collapsed="true">
+    <Position X="74.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAgAAAEAAAAAKCAEACAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\GreyCellViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.GreyCircleViewModel">
+    <Position X="50" Y="10.25" Width="9.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAAAABAAAAAACAQACAAAQAAAAEAA=</HashCode>
+      <FileName>ViewModel\GreyCircleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.GreySquareViewModel" Collapsed="true">
+    <Position X="33" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAgAABEAAAAAKCQECCAAQAAAAEAA=</HashCode>
+      <FileName>ViewModel\GreySquareViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.GridCellViewModel" Collapsed="true">
+    <Position X="12.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACEAAAAARAAIAAAAABAAAEAAAAAIAAEAiAAgAAAAIAA=</HashCode>
+      <FileName>ViewModel\GridCellViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.GridLineViewModel" Collapsed="true">
+    <Position X="39.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAADAAAAAIABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\GridLineViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CharacterViewModel" Collapsed="true">
+    <Position X="44.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgCEAAAABAAgAAAAAgAABEAAABAKIQECCEAQCAAgMAA=</HashCode>
+      <FileName>ViewModel\CharacterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.CheckBoxViewModel" Collapsed="true">
+    <Position X="28.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAAAAAEAAAAAAAAAAAAAAAAAAAACAAAgAA=</HashCode>
+      <FileName>ViewModel\CheckBoxViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.InsertGivenNumbersViewModel" Collapsed="true">
+    <Position X="99.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAgAAAAAAAAAAARQAAAAAAAAAAAAAAAIAAAAlAAAAAA=</HashCode>
+      <FileName>ViewModel\InsertGivenNumbersViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.InsertGraphicElementsViewModel" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\InsertGraphicElementsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.InsertNewSudokuTableViewModel" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wgBAAABAAQBAoBhAAQAAAAQAIAQBBAAJAAAACBAAQEA=</HashCode>
+      <FileName>ViewModel\InsertNewSudokuTableViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.InsertSolutionViewModel" Collapsed="true">
+    <Position X="15" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>WDgUJBAQAAQEABJ5MEEJISkheYCCUJAIJEFA9AAAABE=</HashCode>
+      <FileName>ViewModel\InsertSolutionViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.LineViewModel" Collapsed="true">
+    <Position X="48.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABCAAgAMAAgAABAAAAAACAQACAAAQgAAAEAA=</HashCode>
+      <FileName>ViewModel\LineViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.LongArrowViewModel" Collapsed="true">
+    <Position X="53.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAoAMAAgAABAAAAAACAYAAAAAAgAAAAAA=</HashCode>
+      <FileName>ViewModel\LongArrowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.LongArrowWithCircleViewModel" Collapsed="true">
+    <Position X="64.5" Y="6.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAABCAAAAEAAgAABAAAAAgCAQACAAgwAAAEEAA=</HashCode>
+      <FileName>ViewModel\LongArrowWithCircleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.MainWindowViewModel" Collapsed="true">
+    <Position X="79" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\MainWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.NumberViewModel" Collapsed="true">
+    <Position X="70" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAgAABEAAAAAKIQEACAAgAAAAAAA=</HashCode>
+      <FileName>ViewModel\NumberViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ObservablePages" Collapsed="true">
+    <Position X="90.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAgIACAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ObservablePages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.PageViewModel" Collapsed="true">
+    <Position X="94.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAACAAAAAADAAAAAACAABAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\PageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.RectangleViewModel" Collapsed="true">
+    <Position X="103.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\RectangleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.ShapeViewModel" Collapsed="true">
+    <Position X="108.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\ShapeViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.SmallArrowViewModel" Collapsed="true">
+    <Position X="35.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgEABAAABAAAgAIAEgAgBAAACAAKCQACCAAwAIAAEAA=</HashCode>
+      <FileName>ViewModel\SmallArrowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.SolutionPreviewViewModel" Collapsed="true">
+    <Position X="17.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\SolutionPreviewViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.StartScreenViewModel" Collapsed="true">
+    <Position X="21.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAEAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\StartScreenViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.StarViewModel" Collapsed="true">
+    <Position X="46.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAgAIAAgAABEAAAAAKCQECCAAQAAAAEAA=</HashCode>
+      <FileName>ViewModel\StarViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.SudokuDialogInsertionInputViewModel" Collapsed="true">
+    <Position X="30.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAABAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\SudokuDialogInsertionInputViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.SudokuElementViewModel" Collapsed="true">
+    <Position X="53.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\SudokuElementViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.SudokuInBookletViewModel" Collapsed="true">
+    <Position X="76.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkAAABIYAAAEgAAEAAAAQgQAAAAAACAAAAAAAQAAAAA=</HashCode>
+      <FileName>ViewModel\SudokuInBookletViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.SudokuVariantsButtons" Collapsed="true">
+    <Position X="101.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAEAAAA=</HashCode>
+      <FileName>ViewModel\SudokuVariantsButtons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.TextBlockViewModel" Collapsed="true">
+    <Position X="105.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAACAAAAAA=</HashCode>
+      <FileName>ViewModel\TextBlockViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.ViewModel.WhiteCircleViewModel" Collapsed="true">
+    <Position X="62" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAABAAAAAAAAAAABAAAAAACAQACAAAQAAABEAA=</HashCode>
+      <FileName>ViewModel\WhiteCircleViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.App" Collapsed="true">
+    <Position X="105.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SudokuGraphicCreator.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="105.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="SudokuGraphicCreator.Dialog.IDialog" Collapsed="true">
+    <Position X="110.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Dialog\IDialog.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.Dialog.IDialogRequestClose" Collapsed="true">
+    <Position X="112.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialog\IDialogRequestClose.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.Dialog.IDialogService" Collapsed="true">
+    <Position X="114" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialog\IDialogService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.Dialog.IIOService" Collapsed="true">
+    <Position X="103.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialog\IIOService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.IBookletInformationsViewModel" Collapsed="true">
+    <Position X="101.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAEAgCCABIEEAAAAAEAAAAAAAEACgAIAAA=</HashCode>
+      <FileName>ViewModel\IBookletInformationsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.ICreatingBookletViewModel" Collapsed="true">
+    <Position X="103.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAAAAAABAAAAAAgAAAAAAAAAEAAAAMAAAAAAAAAAAE=</HashCode>
+      <FileName>ViewModel\ICreatingBookletViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.ICreatingSudokuViewModel" Collapsed="true">
+    <Position X="105.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAQADAQAgAAmAggIAECgQgAACABEAAAAQAAYAAAA=</HashCode>
+      <FileName>ViewModel\ICreatingSudokuViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.IDeleteSudokuPageViewModel" Collapsed="true">
+    <Position X="107" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\IDeleteSudokuPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.IDeleteSudokuTableViewModel" Collapsed="true">
+    <Position X="108.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAgAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\IDeleteSudokuTableViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.IInsertedSudokuTable" Collapsed="true">
+    <Position X="101.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\IInsertedSudokuTable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.ISudokuImageBooklet" Collapsed="true">
+    <Position X="105.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAABAAAAAAAAAAAAQBAAAAAAAAABAAQAA=</HashCode>
+      <FileName>ViewModel\ISudokuImageBooklet.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SudokuGraphicCreator.ViewModel.ISudokuInBookletViewModel" Collapsed="true">
+    <Position X="107" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkAAABIQAAAEgAAAAAAAQAQAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>ViewModel\ISudokuInBookletViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SudokuGraphicCreator.IO.SvgIDs" Collapsed="true">
+    <Position X="108.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIICAiAgCAEAAAAAAGCAAAgAQAgIEAAgGEwBFItBDMw=</HashCode>
+      <FileName>IO\SvgIDs.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SudokuGraphicCreator.Model.ElementLocationType" Collapsed="true">
+    <Position X="101.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAgAAAAAAAAAAAABAQAAAAQAAAgAAAAAAAAQAAAA=</HashCode>
+      <FileName>Model\ElementLocationType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SudokuGraphicCreator.Model.GraphicElementType" Collapsed="true">
+    <Position X="103.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAACAIAAABAAAAAAAAAAAAAAAAAAAAAGACAAAEAAAI=</HashCode>
+      <FileName>Model\GraphicElementType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SudokuGraphicCreator.Model.SudokuElementType" Collapsed="true">
+    <Position X="105.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAiAgCAkAgAAAAQAAAAAAQAgIEAAgGAwBEIsABEw=</HashCode>
+      <FileName>Model\SudokuElementType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SudokuGraphicCreator.Model.SudokuType" Collapsed="true">
+    <Position X="107" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKACBgABSAAAAAAQAGAAAAwAQAgAFAAAiEgAEAMACMQ=</HashCode>
+      <FileName>Model\SudokuType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,2627 @@
+﻿<UserControl
+    x:Class="SudokuGraphicCreator.View.CreatingSudoku"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:SudokuGraphicCreator.Convertor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:language="clr-namespace:SudokuGraphicCreator.Properties.Resources"
+    xmlns:local="clr-namespace:SudokuGraphicCreator.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    xmlns:viewmodel="clr-namespace:SudokuGraphicCreator.ViewModel"
+    d:DataContext="{d:DesignInstance Type=viewmodel:CreatingSudokuViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Focusable="True"
+    PreviewKeyUp="UserControl_PreviewKeyUp"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Margin" Value="5,5,5,5" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="BorderButton" TargetType="Border">
+            <Setter Property="Width" Value="145" />
+            <Setter Property="Height" Value="45" />
+            <Setter Property="Margin" Value="5,5,5,5" />
+            <Setter Property="BorderBrush" Value="LightBlue" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <Style x:Key="ButtonStackPannel" TargetType="StackPanel">
+            <Setter Property="Width" Value="145" />
+            <Setter Property="Height" Value="45" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
+
+        <Style x:Key="SudokuButtonText" TargetType="TextBlock">
+            <Setter Property="Margin" Value="5,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="Width" Value="100" />
+        </Style>
+
+        <Style TargetType="CheckBox">
+            <Setter Property="Width" Value="170" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+
+        <Style x:Key="BorderToggleButton" TargetType="Border">
+            <Setter Property="Width" Value="45" />
+            <Setter Property="Height" Value="45" />
+            <Setter Property="Margin" Value="5,5,5,5" />
+            <Setter Property="BorderBrush" Value="LightBlue" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+
+        <converter:CircleNumberConvertor x:Key="CircleNumberConvertor" />
+        <converter:AngleConvertor x:Key="AngleValueConvertor" />
+        <converter:NumberConvertor x:Key="NumberValueConvertor" />
+    </UserControl.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="{x:Static language:Resources.MenuFile}">
+                <MenuItem Command="{Binding GoStartScreenCommand}" Header="{x:Static language:Resources.MenuNew}" />
+                <MenuItem Command="{Binding NewSudokuSizeCommand}" Header="{x:Static language:Resources.MenuNewSize}" />
+                <Separator />
+                <MenuItem
+                    Command="{Binding ExportCommand}"
+                    CommandParameter="{Binding ElementName=Table}"
+                    Header="{x:Static language:Resources.MenuExport}" />
+                <MenuItem Command="{Binding CountOfSolutionsCommand}" Header="{x:Static language:Resources.MenuCountOfSolutions}" />
+                <Separator />
+                <MenuItem Command="{Binding EndCommand}" Header="{x:Static language:Resources.MenuEnd}" />
+            </MenuItem>
+
+            <MenuItem Header="{x:Static language:Resources.MenuEdit}">
+                <MenuItem
+                    Command="{Binding GivenNumberButton.ElementButtonSelectedCommand}"
+                    CommandParameter="{Binding GivenNumberButton.NameOfElement}"
+                    IsCheckable="True"
+                    IsChecked="{Binding GivenNumberButton.Checked}">
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/Number.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.MenuInsertNumber}" />
+                        </Grid>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem>
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/IrregularGrid.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.SudokuIrregular}" />
+                        </Grid>
+                    </MenuItem.Header>
+                    <MenuItem
+                        Command="{Binding GridButton.ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding GridButton.NameOfElement}"
+                        Header="{x:Static language:Resources.MenuSelectRegion}"
+                        IsCheckable="True"
+                        IsChecked="{Binding GridButton.Checked}" />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[0].ConfirmSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuConfirmSelection}"
+                        ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[0].CancelSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuResetSelection}"
+                        ToolTip="Zrušení vybrané oblasti." />
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="{x:Static language:Resources.MenuVariants}">
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuLikeClassic}">
+                    <MenuItem
+                        Command="{Binding CheckboxButtons[2].SudokuCheckBoxCommand}"
+                        CommandParameter="{Binding CheckboxButtons[2].NameOfElement}"
+                        Header="{x:Static language:Resources.SudokuAntiknight}"
+                        IsCheckable="True"
+                        IsChecked="{Binding CheckboxButtons[2].Checked, Mode=TwoWay}" />
+                    <MenuItem
+                        Command="{Binding CheckboxButtons[3].SudokuCheckBoxCommand}"
+                        CommandParameter="{Binding CheckboxButtons[3].NameOfElement}"
+                        Header="{x:Static language:Resources.SudokuNonconsecutive}"
+                        IsCheckable="True"
+                        IsChecked="{Binding CheckboxButtons[3].Checked, Mode=TwoWay}" />
+                    <MenuItem
+                        Command="{Binding CheckboxButtons[4].SudokuCheckBoxCommand}"
+                        CommandParameter="{Binding CheckboxButtons[4].NameOfElement}"
+                        Header="{x:Static language:Resources.SudokuUntouchable}"
+                        IsCheckable="True"
+                        IsChecked="{Binding CheckboxButtons[4].Checked, Mode=TwoWay}" />
+                    <MenuItem
+                        Command="{Binding CheckboxButtons[5].SudokuCheckBoxCommand}"
+                        CommandParameter="{Binding CheckboxButtons[5].NameOfElement}"
+                        Header="{x:Static language:Resources.SudokuDisjointGroups}"
+                        IsCheckable="True"
+                        IsChecked="{Binding CheckboxButtons[5].Checked, Mode=TwoWay}" />
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuElemenetBetweenTwoCells}">
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[6].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[6].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Sum.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuSum}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[7].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[7].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Difference.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuDifference}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[8].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[8].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="7"
+                                    Height="7"
+                                    Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuConsecutive}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="7"
+                                    Height="7"
+                                    Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuKropki}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[9].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[9].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="7"
+                                        Height="7"
+                                        Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.SudokuWhiteKropki}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[0].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[0].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="7"
+                                        Height="7"
+                                        Source="{svgc:SvgImage /View/BlackCircle.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.SudokuBlackKropki}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+
+                    </MenuItem>
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/GreaterThan.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuGreaterThan}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[10].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[10].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/GreaterThanLeft.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuLeft}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[1].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[1].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/GreaterThanRight.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuRight}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[2].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[2].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/GreaterThanUp.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuUp}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[3].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[3].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/GreaterThanDown.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuDown}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/XV.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuXV}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[11].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[11].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/X.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuX}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[4].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[4].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/V.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuV}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuElementInCell}">
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[12].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[12].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/GreySquare.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuOdd}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[13].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[13].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/GreyCircle.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuEven}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[14].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[14].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Star.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuStarProducts}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuSearchNine}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[15].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[15].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuLeft}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[5].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[5].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowRight.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuRight}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[6].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[6].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowUp.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuUp}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[7].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[7].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowDown.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuDown}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuLineOverCells}">
+                    <MenuItem
+                        Command="{Binding CheckboxButtons[0].SudokuCheckBoxCommand}"
+                        CommandParameter="{Binding CheckboxButtons[0].NameOfElement}"
+                        Header="{x:Static language:Resources.SudokuDiagonal}"
+                        IsCheckable="True"
+                        IsChecked="{Binding CheckboxButtons[0].Checked, Mode=TwoWay}" />
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/GreyLine.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuPalindrome}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[16].NameOfElement}"
+                            Header="{x:Static language:Resources.MenuSelectRegion}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[16].Checked, Mode=TwoWay}" />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[1].ConfirmSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuConfirmSelection}"
+                            ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[1].CancelSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuResetSelection}"
+                            ToolTip="Zrušení vybrané oblasti." />
+                    </MenuItem>
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/GreyLine.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuSequence}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[17].NameOfElement}"
+                            Header="{x:Static language:Resources.MenuSelectRegion}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[17].Checked, Mode=TwoWay}" />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[2].ConfirmSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuConfirmSelection}"
+                            ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[2].CancelSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuResetSelection}"
+                            ToolTip="Zrušení vybrané oblasti." />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuArrowOverCells}">
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/CircleWithNumber.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuArrow}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[18].NameOfElement}"
+                            Header="{x:Static language:Resources.MenuSelectRegion}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[18].Checked, Mode=TwoWay}" />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[3].ConfirmSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuConfirmSelection}"
+                            ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[3].CancelSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuResetSelection}"
+                            ToolTip="Zrušení vybrané oblasti." />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuGreyCells}">
+                    <MenuItem
+                        Command="{Binding CheckboxButtons[1].SudokuCheckBoxCommand}"
+                        CommandParameter="{Binding CheckboxButtons[1].NameOfElement}"
+                        Header="{x:Static language:Resources.SudokuWindoku}"
+                        IsCheckable="True"
+                        IsChecked="{Binding CheckboxButtons[1].Checked, Mode=TwoWay}" />
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/GreyCell.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuExtraRegions}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[20].NameOfElement}"
+                            Header="{x:Static language:Resources.MenuSelectRegion}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[20].Checked, Mode=TwoWay}" />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[5].ConfirmSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuConfirmSelection}"
+                            ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[5].CancelSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuResetSelection}"
+                            ToolTip="Zrušení vybrané oblasti." />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuCage}">
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Killer.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuKiller}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[21].NameOfElement}"
+                            Header="{x:Static language:Resources.MenuSelectRegion}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[21].Checked, Mode=TwoWay}" />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[6].ConfirmSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuConfirmSelection}"
+                            ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[6].CancelSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuResetSelection}"
+                            ToolTip="Zrušení vybrané oblasti." />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuNumberAroundGrid}">
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[23].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[23].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Skyscrapers.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuSkyscrapers}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[24].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[24].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/NextToNine.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuNextToNine}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuVariantElementButton[25].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuVariantElementButton[25].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Outside.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuOutside}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.MenuSudokuGraphicUnique}">
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Thermometer.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.SudokuThermometer}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[19].NameOfElement}"
+                            Header="{x:Static language:Resources.MenuSelectRegion}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[19].Checked, Mode=TwoWay}" />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[4].ConfirmSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuConfirmSelection}"
+                            ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[4].CancelSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuResetSelection}"
+                            ToolTip="Zrušení vybrané oblasti." />
+                    </MenuItem>
+                    <MenuItem Header="{x:Static language:Resources.SudokuLittleKiller}">
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuVariantElementButton[22].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuVariantElementButton[22].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/LittleKillerleftdown.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuLeftDown}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[9].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[9].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/LittleKillerDownRight.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuRightDown}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[8].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[8].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/LittleKillerLeftUp.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuLeftUp}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[10].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[10].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/LittleKillerRightUp.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuRightUp}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="{x:Static language:Resources.MenuGraphicElements}">
+                <MenuItem Header="{x:Static language:Resources.ElemCircle}">
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[1].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[1].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/Sum.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.ElemCircleWithNumber}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[2].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[2].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="7"
+                                    Height="7"
+                                    Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.ElemWhiteCircle}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[3].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[3].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="7"
+                                    Height="7"
+                                    Source="{svgc:SvgImage /View/BlackCircle.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.ElemBlackCircle}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[4].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[4].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/GreyCircle.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.ElemGreyCircle}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[5].NameOfElement}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[5].Checked, Mode=TwoWay}">
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/CircleWithGreyEdge.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.ElemCircleWithGreyEdge}" />
+                            </Grid>
+                        </MenuItem.Header>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem>
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/CircleWithNumber.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.ElemArrowWithCircle}" />
+                        </Grid>
+                    </MenuItem.Header>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[6].NameOfElement}"
+                        Header="{x:Static language:Resources.MenuSelectRegion}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[6].Checked, Mode=TwoWay}" />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[7].ConfirmSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuConfirmSelection}"
+                        ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[7].CancelSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuResetSelection}"
+                        ToolTip="Zrušení vybrané oblasti." />
+                </MenuItem>
+                <MenuItem Header="{x:Static language:Resources.ElemArrows}">
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.ElemArrows}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuGraphicElementButton[7].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuGraphicElementButton[7].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuLeft}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[11].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[11].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowRight.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuRight}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[12].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[12].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowUp.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuUp}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[13].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[13].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/ArrowDown.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuDown}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="15"
+                                    Height="15"
+                                    Source="{svgc:SvgImage /View/LongArrow.svg}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    VerticalAlignment="Center"
+                                    Text="{x:Static language:Resources.ElemLongArrow}" />
+                            </Grid>
+                        </MenuItem.Header>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuGraphicElementButton[8].NameOfElement}"
+                            Header="{x:Static language:Resources.MenuSelectRegion}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuGraphicElementButton[8].Checked, Mode=TwoWay}" />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[8].ConfirmSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuConfirmSelection}"
+                            ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                        <MenuItem
+                            Command="{Binding ButtonsConfirm[8].CancelSudokuButtonCommand}"
+                            Header="{x:Static language:Resources.MenuResetSelection}"
+                            ToolTip="Zrušení vybrané oblasti." />
+                    </MenuItem>
+                    <MenuItem Header="{x:Static language:Resources.ElemSmallArrow}">
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding SudokuGraphicElementButton[9].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding SudokuGraphicElementButton[9].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/SmallArrowLeftDown.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuLeftDown}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[15].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[15].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/SmallArrowRightDown.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuRightDown}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[14].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[14].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/SmallArrowLeftUp.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuLeftUp}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                        <MenuItem
+                            Command="{Binding ElementButtonSelectedCommand}"
+                            CommandParameter="{Binding GraphicButtons[16].NameOfElement}"
+                            IsCheckable="True"
+                            IsChecked="{Binding GraphicButtons[16].Checked, Mode=TwoWay}">
+                            <MenuItem.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image
+                                        Width="15"
+                                        Height="15"
+                                        Source="{svgc:SvgImage /View/SmallArrowRightUp.svg}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Text="{x:Static language:Resources.MenuRightUp}" />
+                                </Grid>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem
+                    Command="{Binding ElementButtonSelectedCommand}"
+                    CommandParameter="{Binding SudokuGraphicElementButton[10].NameOfElement}"
+                    IsCheckable="True"
+                    IsChecked="{Binding SudokuGraphicElementButton[10].Checked, Mode=TwoWay}">
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/Character.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.ElemCharacters}" />
+                        </Grid>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem
+                    Command="{Binding ElementButtonSelectedCommand}"
+                    CommandParameter="{Binding SudokuGraphicElementButton[11].NameOfElement}"
+                    IsCheckable="True"
+                    IsChecked="{Binding SudokuGraphicElementButton[11].Checked, Mode=TwoWay}">
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/GreySquare.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.ElemSquare}" />
+                        </Grid>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem
+                    Command="{Binding ElementButtonSelectedCommand}"
+                    CommandParameter="{Binding SudokuGraphicElementButton[12].NameOfElement}"
+                    IsCheckable="True"
+                    IsChecked="{Binding SudokuGraphicElementButton[12].Checked, Mode=TwoWay}">
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/Star.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.ElemStar}" />
+                        </Grid>
+                    </MenuItem.Header>
+                </MenuItem>
+                <MenuItem>
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/GreyLine.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.ElemLine}" />
+                        </Grid>
+                    </MenuItem.Header>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[13].NameOfElement}"
+                        Header="{x:Static language:Resources.MenuSelectRegion}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[13].Checked, Mode=TwoWay}" />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[9].ConfirmSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuConfirmSelection}"
+                        ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[9].CancelSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuResetSelection}"
+                        ToolTip="Zrušení vybrané oblasti." />
+                </MenuItem>
+                <MenuItem>
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/Cage.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.ElemCage}" />
+                        </Grid>
+                    </MenuItem.Header>
+                    <MenuItem
+                        Command="{Binding ElementButtonSelectedCommand}"
+                        CommandParameter="{Binding SudokuGraphicElementButton[14].NameOfElement}"
+                        Header="{x:Static language:Resources.MenuSelectRegion}"
+                        IsCheckable="True"
+                        IsChecked="{Binding SudokuGraphicElementButton[14].Checked, Mode=TwoWay}" />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[10].ConfirmSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuConfirmSelection}"
+                        ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku." />
+                    <MenuItem
+                        Command="{Binding ButtonsConfirm[10].CancelSudokuButtonCommand}"
+                        Header="{x:Static language:Resources.MenuResetSelection}"
+                        ToolTip="Zrušení vybrané oblasti." />
+                </MenuItem>
+                <MenuItem
+                    Command="{Binding ElementButtonSelectedCommand}"
+                    CommandParameter="{Binding SudokuGraphicElementButton[15].NameOfElement}"
+                    IsCheckable="True"
+                    IsChecked="{Binding SudokuGraphicElementButton[15].Checked, Mode=TwoWay}">
+                    <MenuItem.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Width="15"
+                                Height="15"
+                                Source="{svgc:SvgImage /View/GreyCell.svg}" />
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Text="{x:Static language:Resources.ElemGreyCell}" />
+                        </Grid>
+                    </MenuItem.Header>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="{x:Static language:Resources.InputStrings}">
+                <MenuItem Command="{Binding InsertGivenNumberCommand}" Header="{x:Static language:Resources.MenuInsertGivenNumbers}" />
+                <MenuItem Command="{Binding InsertSolutionCommand}" Header="{x:Static language:Resources.MenuInsertSolution}" />
+                <MenuItem Command="{Binding ExportGivenNumbersCommand}" Header="Zadaná čísla..." />
+            </MenuItem>
+
+            <MenuItem Header="{x:Static language:Resources.MenuHelp}">
+                <MenuItem Command="{Binding ShowAboutAppWindow}" Header="{x:Static language:Resources.MenuAboutApp}" />
+            </MenuItem>
+        </Menu>
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button
+                Height="25"
+                Margin="5,5,5,5"
+                Command="{Binding InsertGivenNumberCommand}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Static language:Resources.InsertGivenNumbers}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button
+                Height="25"
+                Margin="5,5,5,5"
+                Command="{Binding InsertSolutionCommand}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Static language:Resources.InsertSolution}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button
+                Height="25"
+                Margin="5,5,5,5"
+                Command="{Binding ExportCommand}"
+                CommandParameter="{Binding ElementName=Table}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Static language:Resources.Export}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button
+                Height="25"
+                Margin="5,5,5,5"
+                Command="{Binding CountOfSolutionsCommand}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Static language:Resources.CountOfSolutions}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="220" />
+            </Grid.ColumnDefinitions>
+
+            <DockPanel
+                Width="200"
+                Height="Auto"
+                Margin="10,10,10,10">
+                <Border
+                    Height="105"
+                    Margin="0,0,0,5"
+                    BorderBrush="{DynamicResource AttentionToActionBrush}"
+                    BorderThickness="2"
+                    DockPanel.Dock="Top">
+                    <Grid
+                        Height="90"
+                        Margin="5,5,5,5"
+                        DockPanel.Dock="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="55" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Margin="5,5,5,5"
+                            Content="{x:Static language:Resources.GivenNumbers}"
+                            FontWeight="Bold" />
+
+                        <StackPanel
+                            Grid.Row="1"
+                            DataContext="{Binding GivenNumberButton}"
+                            Orientation="Horizontal">
+                            <Border HorizontalAlignment="Left" Style="{StaticResource BorderToggleButton}">
+                                <ToggleButton
+                                    Command="{Binding ElementButtonSelectedCommand}"
+                                    CommandParameter="{Binding NameOfElement}"
+                                    IsChecked="{Binding Checked, Mode=TwoWay}"
+                                    Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                    <ToggleButton.Content>
+                                        <svgc:SvgViewbox
+                                            Width="{Binding ImageWidth}"
+                                            Height="{Binding ImageHeight}"
+                                            Source="{Binding ImageSource}" />
+                                    </ToggleButton.Content>
+                                </ToggleButton>
+                            </Border>
+                            <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Margin="0,0,0,5"
+                    BorderBrush="{DynamicResource AttentionToActionBrush}"
+                    BorderThickness="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="24*" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Margin="5,5,5,5"
+                            Content="{x:Static language:Resources.CreatingSudokuLabelVariants}"
+                            FontWeight="Bold" />
+
+                        <ScrollViewer
+                            Grid.Row="2"
+                            Width="190"
+                            Height="Auto"
+                            MinHeight="250"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Panel.ZIndex="1"
+                            VerticalScrollBarVisibility="Auto"
+                            Visibility="Visible">
+                            <ItemsControl ItemsSource="{Binding VisibleSudokuVariantButton, UpdateSourceTrigger=PropertyChanged}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+
+                                <ItemsControl.Resources>
+                                    <DataTemplate DataType="{x:Type viewmodel:ElementCheckBox}">
+                                        <CheckBox
+                                            Margin="10,5,10,5"
+                                            Command="{Binding SudokuCheckBoxCommand}"
+                                            CommandParameter="{Binding NameOfElement}"
+                                            Content="{Binding Text}"
+                                            IsChecked="{Binding Checked, Mode=TwoWay}"
+                                            IsEnabled="{Binding Enabled}"
+                                            Style="{DynamicResource MaterialDesignDarkCheckBox}" />
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type viewmodel:ElementButton}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border Style="{StaticResource BorderToggleButton}">
+                                                <ToggleButton
+                                                    Command="{Binding ElementButtonSelectedCommand}"
+                                                    CommandParameter="{Binding NameOfElement}"
+                                                    IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                    Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                                    <ToggleButton.Content>
+                                                        <svgc:SvgViewbox
+                                                            Width="{Binding ImageWidth}"
+                                                            Height="{Binding ImageHeight}"
+                                                            Source="{Binding ImageSource}" />
+                                                    </ToggleButton.Content>
+                                                </ToggleButton>
+                                            </Border>
+                                            <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type viewmodel:ElementButtonConfirm}">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border Style="{StaticResource BorderToggleButton}">
+                                                    <ToggleButton
+                                                        Command="{Binding ElementButtonSelectedCommand}"
+                                                        CommandParameter="{Binding NameOfElement}"
+                                                        IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                        Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}"
+                                                        ToolTip="Pro výběr políček klikněte do tabulky v pořadí vykreslování prvku.">
+                                                        <ToggleButton.Content>
+                                                            <svgc:SvgViewbox
+                                                                Width="{Binding ImageWidth}"
+                                                                Height="{Binding ImageHeight}"
+                                                                Source="{Binding ImageSource}" />
+                                                        </ToggleButton.Content>
+                                                    </ToggleButton>
+                                                </Border>
+                                                <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                                            </StackPanel>
+                                            <StackPanel
+                                                Height="40"
+                                                Margin="5,0,5,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <Button
+                                                    Width="30"
+                                                    Height="30"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding ConfirmSudokuButtonCommand}"
+                                                    CommandParameter="{Binding NameOfElement}"
+                                                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+                                                    ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku.">
+                                                    <Button.Content>
+                                                        <Image
+                                                            Width="20"
+                                                            Height="20"
+                                                            Source="{svgc:SvgImage /View/CheckMark.svg}" />
+                                                    </Button.Content>
+                                                </Button>
+
+                                                <Button
+                                                    Width="30"
+                                                    Height="30"
+                                                    Margin="0,0,0,0"
+                                                    Command="{Binding CancelSudokuButtonCommand}"
+                                                    CommandParameter="{Binding NameOfElement}"
+                                                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+                                                    ToolTip="Zrušení vybrané oblasti.">
+                                                    <Button.Content>
+                                                        <Image
+                                                            Width="20"
+                                                            Height="20"
+                                                            Source="{svgc:SvgImage /View/Cancel.svg}" />
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type viewmodel:ElementButtonGraphicOptions}">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border Style="{StaticResource BorderToggleButton}">
+                                                    <ToggleButton
+                                                        Command="{Binding ElementButtonSelectedCommand}"
+                                                        CommandParameter="{Binding NameOfElement}"
+                                                        IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                        Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                                        <ToggleButton.Content>
+                                                            <svgc:SvgViewbox
+                                                                Width="{Binding ImageWidth}"
+                                                                Height="{Binding ImageHeight}"
+                                                                Source="{Binding ImageSource}" />
+                                                        </ToggleButton.Content>
+                                                    </ToggleButton>
+                                                </Border>
+                                                <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                                            </StackPanel>
+                                            <ItemsControl ItemsSource="{Binding ElementButtonOptions}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel
+                                                            Height="40"
+                                                            Margin="5,0,5,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.Resources>
+                                                    <DataTemplate DataType="{x:Type viewmodel:ElementButtonOption}">
+                                                        <Border
+                                                            Width="35"
+                                                            Height="35"
+                                                            Margin="0,0,0,0"
+                                                            Style="{StaticResource BorderButton}">
+                                                            <ToggleButton
+                                                                Width="30"
+                                                                Height="30"
+                                                                Margin="0,0,0,0"
+                                                                Command="{Binding ElementButtonSelectedCommand}"
+                                                                CommandParameter="{Binding NameOfElement}"
+                                                                IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                                Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                                                <ToggleButton.Content>
+                                                                    <svgc:SvgViewbox
+                                                                        Width="{Binding Width}"
+                                                                        Height="{Binding Height}"
+                                                                        Source="{Binding ImageSource}" />
+                                                                </ToggleButton.Content>
+                                                            </ToggleButton>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.Resources>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.Resources>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </DockPanel>
+
+            <DockPanel
+                Grid.Column="2"
+                Width="200"
+                Height="Auto"
+                Margin="10,10,10,10">
+                <Border
+                    Height="150"
+                    Margin="0,0,0,5"
+                    BorderBrush="{DynamicResource AttentionToActionBrush}"
+                    BorderThickness="2"
+                    DockPanel.Dock="Top">
+                    <Grid Height="150" Margin="5,5,5,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="110" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Margin="5,5,5,5"
+                            Content="{x:Static language:Resources.ElemGrid}"
+                            FontWeight="Bold" />
+                        <StackPanel
+                            Grid.Row="1"
+                            Margin="5,0,5,5"
+                            HorizontalAlignment="Left">
+                            <StackPanel DataContext="{Binding GridButton}" Orientation="Horizontal">
+                                <Border Style="{StaticResource BorderToggleButton}">
+                                    <ToggleButton
+                                        Command="{Binding ElementButtonSelectedCommand}"
+                                        CommandParameter="{Binding NameOfElement}"
+                                        IsChecked="{Binding Checked, Mode=TwoWay}"
+                                        Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                        <ToggleButton.Content>
+                                            <svgc:SvgViewbox
+                                                Width="{Binding ImageWidth}"
+                                                Height="{Binding ImageHeight}"
+                                                Source="{Binding ImageSource}" />
+                                        </ToggleButton.Content>
+                                    </ToggleButton>
+                                </Border>
+                                <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                            </StackPanel>
+                            <StackPanel
+                                Height="40"
+                                Margin="5,0,5,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                                <Button
+                                    Width="30"
+                                    Height="30"
+                                    Margin="0,0,5,0"
+                                    Command="{Binding ButtonsConfirm[0].ConfirmSudokuButtonCommand}"
+                                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+                                    ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku.">
+                                    <Button.Content>
+                                        <Image
+                                            Width="20"
+                                            Height="20"
+                                            Source="{svgc:SvgImage /View/CheckMark.svg}" />
+                                    </Button.Content>
+                                </Button>
+
+                                <Button
+                                    Width="30"
+                                    Height="30"
+                                    Margin="0,0,0,0"
+                                    Command="{Binding ButtonsConfirm[0].CancelSudokuButtonCommand}"
+                                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+                                    ToolTip="Zrušení vybrané oblasti.">
+                                    <Button.Content>
+                                        <Image
+                                            Width="20"
+                                            Height="20"
+                                            Source="{svgc:SvgImage /View/Cancel.svg}" />
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="{DynamicResource AttentionToActionBrush}" BorderThickness="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Margin="5,5,5,5"
+                            Content="{x:Static language:Resources.GraphicElemenets}"
+                            FontWeight="Bold" />
+
+                        <ScrollViewer
+                            Grid.Row="2"
+                            Width="190"
+                            Height="Auto"
+                            MinHeight="200"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            VerticalScrollBarVisibility="Auto"
+                            Visibility="Visible">
+                            <ItemsControl ItemsSource="{Binding SudokuGraphicElementButton}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.Resources>
+                                    <DataTemplate DataType="{x:Type viewmodel:ElementButton}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border Style="{StaticResource BorderToggleButton}">
+                                                <ToggleButton
+                                                    Command="{Binding ElementButtonSelectedCommand}"
+                                                    CommandParameter="{Binding NameOfElement}"
+                                                    IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                    Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                                    <ToggleButton.Content>
+                                                        <svgc:SvgViewbox
+                                                            Width="{Binding ImageWidth}"
+                                                            Height="{Binding ImageHeight}"
+                                                            Source="{Binding ImageSource}" />
+                                                    </ToggleButton.Content>
+                                                </ToggleButton>
+                                            </Border>
+                                            <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                                        </StackPanel>
+
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type viewmodel:ElementButtonConfirm}">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border Style="{StaticResource BorderToggleButton}">
+                                                    <ToggleButton
+                                                        Command="{Binding ElementButtonSelectedCommand}"
+                                                        CommandParameter="{Binding NameOfElement}"
+                                                        IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                        Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}"
+                                                        ToolTip="Pro výběr políček klikněte do tabulky v pořadí vykreslování prvku.">
+                                                        <ToggleButton.Content>
+                                                            <svgc:SvgViewbox
+                                                                Width="{Binding ImageWidth}"
+                                                                Height="{Binding ImageHeight}"
+                                                                Source="{Binding ImageSource}" />
+                                                        </ToggleButton.Content>
+                                                    </ToggleButton>
+                                                </Border>
+                                                <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                                            </StackPanel>
+                                            <StackPanel
+                                                Height="40"
+                                                Margin="5,0,5,0"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                                <Button
+                                                    Width="30"
+                                                    Height="30"
+                                                    Margin="0,0,5,0"
+                                                    Command="{Binding ConfirmSudokuButtonCommand}"
+                                                    CommandParameter="{Binding NameOfElement}"
+                                                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+                                                    ToolTip="Potvrzení výběru oblasti po vložení nebo odstranění prvku.">
+                                                    <Button.Content>
+                                                        <Image
+                                                            Width="20"
+                                                            Height="20"
+                                                            Source="{svgc:SvgImage /View/CheckMark.svg}" />
+                                                    </Button.Content>
+                                                </Button>
+
+                                                <Button
+                                                    Width="30"
+                                                    Height="30"
+                                                    Margin="0,0,0,0"
+                                                    Command="{Binding CancelSudokuButtonCommand}"
+                                                    CommandParameter="{Binding NameOfElement}"
+                                                    Style="{DynamicResource MaterialDesignFloatingActionLightButton}"
+                                                    ToolTip="Zrušení vybrané oblasti.">
+                                                    <Button.Content>
+                                                        <Image
+                                                            Width="20"
+                                                            Height="20"
+                                                            Source="{svgc:SvgImage /View/Cancel.svg}" />
+                                                    </Button.Content>
+                                                </Button>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                    <DataTemplate DataType="{x:Type viewmodel:ElementButtonGraphicOptions}">
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border Style="{StaticResource BorderToggleButton}">
+                                                    <ToggleButton
+                                                        Command="{Binding ElementButtonSelectedCommand}"
+                                                        CommandParameter="{Binding NameOfElement}"
+                                                        IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                        Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                                        <ToggleButton.Content>
+                                                            <svgc:SvgViewbox
+                                                                Width="{Binding ImageWidth}"
+                                                                Height="{Binding ImageHeight}"
+                                                                Source="{Binding ImageSource}" />
+                                                        </ToggleButton.Content>
+                                                    </ToggleButton>
+                                                </Border>
+                                                <TextBlock Style="{StaticResource SudokuButtonText}" Text="{Binding Text}" />
+                                            </StackPanel>
+                                            <ItemsControl ItemsSource="{Binding ElementButtonOptions}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel
+                                                            Height="40"
+                                                            Margin="5,0,5,0"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            Orientation="Horizontal" />
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.Resources>
+                                                    <DataTemplate DataType="{x:Type viewmodel:ElementButtonOption}">
+                                                        <Border
+                                                            Width="35"
+                                                            Height="35"
+                                                            Margin="0,0,0,0"
+                                                            Style="{StaticResource BorderButton}">
+                                                            <ToggleButton
+                                                                Width="30"
+                                                                Height="30"
+                                                                Margin="0,0,0,0"
+                                                                Command="{Binding ElementButtonSelectedCommand}"
+                                                                CommandParameter="{Binding NameOfElement}"
+                                                                IsChecked="{Binding Checked, Mode=TwoWay}"
+                                                                Style="{DynamicResource MaterialDesignFlatPrimaryToggleButton}">
+                                                                <ToggleButton.Content>
+                                                                    <svgc:SvgViewbox
+                                                                        Width="{Binding Width}"
+                                                                        Height="{Binding Height}"
+                                                                        Source="{Binding ImageSource}" />
+                                                                </ToggleButton.Content>
+                                                            </ToggleButton>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.Resources>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ItemsControl.Resources>
+                            </ItemsControl>
+                        </ScrollViewer>
+                    </Grid>
+                </Border>
+            </DockPanel>
+
+            <Border
+                Grid.Column="1"
+                Width="{Binding TotalSize}"
+                Height="{Binding TotalSize}"
+                BorderBrush="LightBlue"
+                BorderThickness="2">
+                <Grid
+                    x:Name="Table"
+                    Width="{Binding TotalSize}"
+                    Height="{Binding TotalSize}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding OutsideSize}" />
+                        <ColumnDefinition Width="{Binding CentralSize}" />
+                        <ColumnDefinition Width="{Binding OutsideSize}" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{Binding OutsideSize}" />
+                        <RowDefinition Height="{Binding CentralSize}" />
+                        <RowDefinition Height="{Binding OutsideSize}" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="1">
+                        <ItemsControl ItemsSource="{Binding LeftGridCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding LeftGraphicCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.Resources>
+                                <DataTemplate DataType="{x:Type viewmodel:SmallArrowViewModel}">
+                                    <Polygon Fill="{Binding Fill}" Points="{Binding Points}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:NumberViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Value, Converter={StaticResource NumberValueConvertor}}"
+                                        FontSize="{Binding TextSize}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CharacterViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Text}"
+                                        FontSize="{Binding TextSize}">
+                                        <Label.RenderTransform>
+                                            <RotateTransform Angle="{Binding Angle, Converter={StaticResource AngleValueConvertor}}" />
+                                        </Label.RenderTransform>
+                                    </Label>
+                                </DataTemplate>
+                            </ItemsControl.Resources>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding LeftNumberCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Content="{Binding Number, Converter={StaticResource CircleNumberConvertor}}"
+                                        FontSize="{Binding TextSize}"
+                                        MouseDown="Label_MouseDown" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Grid.Column="2">
+                        <ItemsControl ItemsSource="{Binding RightGridCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding RightGraphicCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.Resources>
+                                <DataTemplate DataType="{x:Type viewmodel:SmallArrowViewModel}">
+                                    <Polygon Fill="{Binding Fill}" Points="{Binding Points}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:NumberViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Value, Converter={StaticResource NumberValueConvertor}}"
+                                        FontSize="{Binding TextSize}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CharacterViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Text}"
+                                        FontSize="{Binding TextSize}">
+                                        <Label.RenderTransform>
+                                            <RotateTransform Angle="{Binding Angle, Converter={StaticResource AngleValueConvertor}}" />
+                                        </Label.RenderTransform>
+                                    </Label>
+                                </DataTemplate>
+                            </ItemsControl.Resources>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding RightNumberCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Content="{Binding Number, Converter={StaticResource CircleNumberConvertor}}"
+                                        FontSize="{Binding TextSize}"
+                                        MouseDown="Label_MouseDown" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <ItemsControl ItemsSource="{Binding UpGridCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding UpGraphicCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.Resources>
+                                <DataTemplate DataType="{x:Type viewmodel:SmallArrowViewModel}">
+                                    <Polygon Fill="{Binding Fill}" Points="{Binding Points}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:NumberViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Value, Converter={StaticResource NumberValueConvertor}}"
+                                        FontSize="{Binding TextSize}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CharacterViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Text}"
+                                        FontSize="{Binding TextSize}">
+                                        <Label.RenderTransform>
+                                            <RotateTransform Angle="{Binding Angle, Converter={StaticResource AngleValueConvertor}}" />
+                                        </Label.RenderTransform>
+                                    </Label>
+                                </DataTemplate>
+                            </ItemsControl.Resources>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding UpNumberCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Content="{Binding Number, Converter={StaticResource CircleNumberConvertor}}"
+                                        FontSize="{Binding TextSize}"
+                                        MouseDown="Label_MouseDown" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Grid.Column="1">
+                        <ItemsControl ItemsSource="{Binding BottomGridCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding BottomGraphicCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.Resources>
+                                <DataTemplate DataType="{x:Type viewmodel:SmallArrowViewModel}">
+                                    <Polygon Fill="{Binding Fill}" Points="{Binding Points}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:NumberViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Value, Converter={StaticResource NumberValueConvertor}}"
+                                        FontSize="{Binding TextSize}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CharacterViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Text}"
+                                        FontSize="{Binding TextSize}">
+                                        <Label.RenderTransform>
+                                            <RotateTransform Angle="{Binding Angle, Converter={StaticResource AngleValueConvertor}}" />
+                                        </Label.RenderTransform>
+                                    </Label>
+                                </DataTemplate>
+                            </ItemsControl.Resources>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding BottomNumberCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Content="{Binding Number, Converter={StaticResource CircleNumberConvertor}}"
+                                        FontSize="{Binding TextSize}"
+                                        MouseDown="Label_MouseDown" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                    <Grid
+                        x:Name="canvasGrid"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="{Binding CentralSize}"
+                        Height="{Binding CentralSize}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <ItemsControl ItemsSource="{Binding GridCells}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate x:Name="PanelCanvas">
+                                    <Canvas x:Name="CentralCanvas" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        BorderBrush="Black"
+                                        BorderThickness="{Binding BorderThickness, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding GraphicElements}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.Resources>
+                                <DataTemplate DataType="{x:Type viewmodel:ClassicLineViewModel}">
+                                    <Line
+                                        Stroke="{Binding Brush}"
+                                        StrokeThickness="{Binding StrokeThickness}"
+                                        X1="{Binding X1}"
+                                        X2="{Binding X2}"
+                                        Y1="{Binding Y1}"
+                                        Y2="{Binding Y2}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CircleViewModel}">
+                                    <Ellipse
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Fill="{Binding Fill}"
+                                        Stroke="{Binding Stroke}"
+                                        StrokeThickness="{Binding StrokeThickness}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CircleWithNumberViewModel}">
+                                    <Border
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Background="{Binding Fill}"
+                                        BorderBrush="{Binding Border}"
+                                        BorderThickness="1"
+                                        CornerRadius="50">
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontSize="{Binding TextSize}"
+                                            Text="{Binding Value, Converter={StaticResource CircleNumberConvertor}}" />
+                                    </Border>
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:GreySquareViewModel}">
+                                    <Rectangle
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        Fill="{Binding Fill}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:GreyCellViewModel}" />
+                                <DataTemplate DataType="{x:Type viewmodel:StarViewModel}">
+                                    <Polygon Fill="{Binding Fill}" Points="{Binding Points}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:BoldArrowViewModel}">
+                                    <Polygon Fill="{Binding Fill}" Points="{Binding Points}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CharacterViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Text}"
+                                        FontSize="{Binding TextSize}">
+                                        <Label.RenderTransform>
+                                            <RotateTransform Angle="{Binding Angle, Converter={StaticResource AngleValueConvertor}}" />
+                                        </Label.RenderTransform>
+                                    </Label>
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:NumberViewModel}">
+                                    <Label
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Content="{Binding Value, Converter={StaticResource NumberValueConvertor}}"
+                                        FontSize="{Binding TextSize}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:LineViewModel}">
+                                    <Polyline
+                                        Points="{Binding Points}"
+                                        Stroke="{Binding Color}"
+                                        StrokeThickness="{Binding StrokeThickness}" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:CageViewModel}">
+                                    <Polyline
+                                        Fill="Transparent"
+                                        Points="{Binding Points}"
+                                        Stroke="Black"
+                                        StrokeDashArray="2 2 2"
+                                        StrokeThickness="2" />
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:LongArrowViewModel}">
+                                    <Canvas>
+                                        <Polyline
+                                            Points="{Binding Points}"
+                                            Stroke="{Binding Color}"
+                                            StrokeThickness="{Binding StrokeThickness}" />
+                                        <Polyline
+                                            Points="{Binding HeadPoints}"
+                                            Stroke="{Binding Color}"
+                                            StrokeThickness="{Binding StrokeThickness}" />
+                                    </Canvas>
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:LongArrowWithCircleViewModel}">
+                                    <Canvas>
+                                        <Polyline
+                                            DataContext="{Binding Arrow}"
+                                            Points="{Binding Points}"
+                                            Stroke="{Binding Color}"
+                                            StrokeThickness="{Binding StrokeThickness}" />
+                                        <Polyline
+                                            DataContext="{Binding Arrow}"
+                                            Points="{Binding HeadPoints}"
+                                            Stroke="{Binding Color}"
+                                            StrokeThickness="{Binding StrokeThickness}" />
+                                        <Ellipse
+                                            Width="{Binding Width}"
+                                            Height="{Binding Height}"
+                                            Margin="{Binding Margin}"
+                                            DataContext="{Binding Circle}"
+                                            Fill="{Binding Fill}"
+                                            Stroke="{Binding Stroke}"
+                                            StrokeThickness="{Binding StrokeThickness}" />
+                                    </Canvas>
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodel:SmallArrowViewModel}">
+                                    <Polygon Fill="{Binding Fill}" Points="{Binding Points}" />
+                                </DataTemplate>
+                            </ItemsControl.Resources>
+                        </ItemsControl>
+
+                        <ItemsControl ItemsSource="{Binding CellNumbers}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Canvas />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Label
+                                        x:Name="centralCell"
+                                        Width="{Binding Width}"
+                                        Height="{Binding Height}"
+                                        Margin="{Binding Margin}"
+                                        HorizontalContentAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Background="{Binding Background, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Content="{Binding Number, Converter={StaticResource CircleNumberConvertor}}"
+                                        FontSize="{Binding TextSize}"
+                                        MouseDown="Label_MouseDown" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </DockPanel>
+</UserControl>

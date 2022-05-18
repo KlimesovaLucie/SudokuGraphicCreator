@@ -1,0 +1,50 @@
+﻿namespace SudokuGraphicCreator.IO
+{
+    /// <summary>
+    /// Enum of IDs of SvgGroup, correspond by type of variant.
+    /// </summary>
+    public enum SvgIDs
+    {
+        Grid,
+        BoldGrid,
+        GivenNumbers,
+        Diagonal,
+        Windoku,
+        Antiknight,
+        Nonconsecutive,
+        Untouchable,
+        DisjointGroup,
+        Sum,
+        Difference,
+        Consecutive,
+        KropkiWhite,
+        KropkiBlack,
+        GreaterThanLeft,
+        GreaterThanRight,
+        GreaterThanUp,
+        GreaterThanDown,
+        XvX,
+        XvV,
+        Odd,
+        Even,
+        StarProduct,
+        SearchNineLeft,
+        SearchNineRight,
+        SearchNineUp,
+        SearchNineDown,
+        Palindromes,
+        Sequences,
+        Arrows,
+        Thermometers,
+        ExtraRegions,
+        Killer,
+        LittleKillerLeftDown,
+        LittleKillerLeftUp,
+        LittleKillerRightUp,
+        LittleKillerRightDown,
+        Skyscrapers,
+        NextToNine,
+        Outside,
+        GraphicElements,
+    }
+}

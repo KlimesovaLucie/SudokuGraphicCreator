@@ -1,0 +1,49 @@
+﻿<Window
+    x:Class="SudokuGraphicCreator.View.EditBooklet"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:language="clr-namespace:SudokuGraphicCreator.Properties.Resources"
+    xmlns:local="clr-namespace:SudokuGraphicCreator.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="clr-namespace:SudokuGraphicCreator.ViewModel"
+    Title="{x:Static language:Resources.EditBooklet}"
+    Width="500"
+    Height="300"
+    d:DataContext="{d:DesignInstance Type=viewmodel:EditBookletViewModel}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Label VerticalAlignment="Center" Content="{x:Static language:Resources.Page}" />
+                <ComboBox
+                    Width="100"
+                    Margin="20,5"
+                    ItemsSource="{Binding Pages}"
+                    SelectedItem="{Binding SelectedPageOrder}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <Label Content="{x:Static language:Resources.FirstSudoku}" />
+                <ComboBox ItemsSource="{Binding AllSudoku}" Width="400" SelectedItem="{Binding FirstSudoku}" />
+                <Label Content="{x:Static language:Resources.SecondSudoku}" />
+                <ComboBox ItemsSource="{Binding AllSudoku}" Width="400" SelectedItem="{Binding SecondSudoku}" />
+            </StackPanel>
+
+            <Button
+                Grid.Row="2"
+                Width="50"
+                Margin="10,10"
+                Command="{Binding OkCommand}"
+                Content="{x:Static language:Resources.Ok}" />
+        </Grid>
+    </Grid>
+</Window>

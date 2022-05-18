@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SudokuGraphicCreator", "SudokuGraphicCreator\SudokuGraphicCreator.csproj", "{97CF1851-2392-4028-9528-3532EE90ACFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuGraphicCreator.Tests", "SudokuGraphicCreator.Tests\SudokuGraphicCreator.Tests.csproj", "{D922F9F8-0434-464E-B1CF-2500A7F9AE53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97CF1851-2392-4028-9528-3532EE90ACFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CF1851-2392-4028-9528-3532EE90ACFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CF1851-2392-4028-9528-3532EE90ACFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CF1851-2392-4028-9528-3532EE90ACFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D922F9F8-0434-464E-B1CF-2500A7F9AE53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D922F9F8-0434-464E-B1CF-2500A7F9AE53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D922F9F8-0434-464E-B1CF-2500A7F9AE53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D922F9F8-0434-464E-B1CF-2500A7F9AE53}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CA0173D-5CFA-433E-A553-628B981AFA84}
+	EndGlobalSection
+EndGlobal

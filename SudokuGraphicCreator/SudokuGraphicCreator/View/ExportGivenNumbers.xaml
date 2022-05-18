@@ -1,0 +1,45 @@
+﻿<Window
+    x:Class="SudokuGraphicCreator.View.ExportGivenNumbers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:SudokuGraphicCreator.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:SudokuGraphicCreator.ViewModel"
+    Title="ExportGivenNumbers"
+    Width="400"
+    Height="250"
+    d:DataContext="{d:DesignInstance Type=viewModel:ExportGivenNumbersViewModel}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Content="Zadaná čísla v tabulce" FontWeight="Bold" />
+
+            <TextBox
+                Grid.Row="1"
+                Width="250"
+                Height="100"
+                Margin="5,5"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                Style="{DynamicResource MaterialDesignOutlinedTextBox}"
+                Text="{Binding InputString}"
+                TextWrapping="Wrap" />
+
+            <Button
+                Grid.Row="2"
+                Width="50"
+                Margin="5,5"
+                HorizontalAlignment="Center"
+                Command="{Binding OkCommand}"
+                Content="Ok" />
+        </Grid>
+    </Grid>
+</Window>
