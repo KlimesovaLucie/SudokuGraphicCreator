@@ -3,12 +3,17 @@ Sudoku Graphic Creator is a desktop application for the graphical creation of su
 
 
 You can download this application from [here](https://github.com/KlimesovaLucie/SudokuGraphicCreator/releases/download/1.0.0/SGC.zip).
+
+[<img src="./imgs/creatingSudoku.jpg"/>](./imgs/creatingSudoku.jpg)
+
+[<img src="./imgs/creatingBooklet.jpg"/>](./imgs/creatingBooklet.jpg)
+
 ## Supported features
 ### Creating sudoku
   - supported grid size are 6x6, 9x9,
   - compute all possible solutions for supported variants,
   - export computed solution of created sudoku,
-  - export image into PNG and SVG format,
+  - export image into PNG and SVG format.
 ### Creating booklets
  - application can create default rules version based on type of inserted variant,
  - create solution from loaded SVG image of sudoku (only for supported variants),
