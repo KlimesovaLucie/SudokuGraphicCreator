@@ -95,7 +95,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/Number.svg}" />
+                                Source="{svgc:SvgImage /icons/Number.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -113,7 +113,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/IrregularGrid.svg}" />
+                                Source="{svgc:SvgImage /icons/IrregularGrid.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -179,7 +179,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Sum.svg}" />
+                                    Source="{svgc:SvgImage /icons/Sum.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -201,7 +201,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Difference.svg}" />
+                                    Source="{svgc:SvgImage /icons/Difference.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -223,7 +223,7 @@
                                 <Image
                                     Width="7"
                                     Height="7"
-                                    Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                    Source="{svgc:SvgImage /icons/WhiteCircle.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -241,7 +241,7 @@
                                 <Image
                                     Width="7"
                                     Height="7"
-                                    Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                    Source="{svgc:SvgImage /icons/WhiteCircle.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -262,7 +262,7 @@
                                     <Image
                                         Width="7"
                                         Height="7"
-                                        Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                        Source="{svgc:SvgImage /icons/WhiteCircle.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -284,7 +284,7 @@
                                     <Image
                                         Width="7"
                                         Height="7"
-                                        Source="{svgc:SvgImage /View/BlackCircle.svg}" />
+                                        Source="{svgc:SvgImage /icons/BlackCircle.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -304,7 +304,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/GreaterThan.svg}" />
+                                    Source="{svgc:SvgImage /icons/GreaterThan.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -325,7 +325,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/GreaterThanLeft.svg}" />
+                                        Source="{svgc:SvgImage /icons/GreaterThanLeft.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -347,7 +347,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/GreaterThanRight.svg}" />
+                                        Source="{svgc:SvgImage /icons/GreaterThanRight.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -369,7 +369,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/GreaterThanUp.svg}" />
+                                        Source="{svgc:SvgImage /icons/GreaterThanUp.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -391,7 +391,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/GreaterThanDown.svg}" />
+                                        Source="{svgc:SvgImage /icons/GreaterThanDown.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -410,7 +410,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/XV.svg}" />
+                                    Source="{svgc:SvgImage /icons/XV.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -431,7 +431,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/X.svg}" />
+                                        Source="{svgc:SvgImage /icons/X.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -453,7 +453,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/V.svg}" />
+                                        Source="{svgc:SvgImage /icons/V.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -478,7 +478,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/GreySquare.svg}" />
+                                    Source="{svgc:SvgImage /icons/GreySquare.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -500,7 +500,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/GreyCircle.svg}" />
+                                    Source="{svgc:SvgImage /icons/GreyCircle.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -522,7 +522,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Star.svg}" />
+                                    Source="{svgc:SvgImage /icons/Star.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -540,7 +540,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                    Source="{svgc:SvgImage /icons/ArrowLeft.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -561,7 +561,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowLeft.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -583,7 +583,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowRight.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowRight.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -605,7 +605,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowUp.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowUp.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -627,7 +627,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowDown.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowDown.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -654,7 +654,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/GreyLine.svg}" />
+                                    Source="{svgc:SvgImage /icons/GreyLine.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -686,7 +686,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/GreyLine.svg}" />
+                                    Source="{svgc:SvgImage /icons/GreyLine.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -720,7 +720,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/CircleWithNumber.svg}" />
+                                    Source="{svgc:SvgImage /icons/CircleWithNumber.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -760,7 +760,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/GreyCell.svg}" />
+                                    Source="{svgc:SvgImage /icons/GreyCell.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -794,7 +794,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Killer.svg}" />
+                                    Source="{svgc:SvgImage /icons/Killer.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -832,7 +832,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Skyscrapers.svg}" />
+                                    Source="{svgc:SvgImage /icons/Skyscrapers.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -854,7 +854,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/NextToNine.svg}" />
+                                    Source="{svgc:SvgImage /icons/NextToNine.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -876,7 +876,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Outside.svg}" />
+                                    Source="{svgc:SvgImage /icons/Outside.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -896,7 +896,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Thermometer.svg}" />
+                                    Source="{svgc:SvgImage /icons/Thermometer.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -933,7 +933,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/LittleKillerleftdown.svg}" />
+                                        Source="{svgc:SvgImage /icons/LittleKillerleftdown.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -955,7 +955,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/LittleKillerDownRight.svg}" />
+                                        Source="{svgc:SvgImage /icons/LittleKillerDownRight.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -977,7 +977,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/LittleKillerLeftUp.svg}" />
+                                        Source="{svgc:SvgImage /icons/LittleKillerLeftUp.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -999,7 +999,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/LittleKillerRightUp.svg}" />
+                                        Source="{svgc:SvgImage /icons/LittleKillerRightUp.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1027,7 +1027,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/Sum.svg}" />
+                                    Source="{svgc:SvgImage /icons/CircleWithNumber.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -1049,7 +1049,7 @@
                                 <Image
                                     Width="7"
                                     Height="7"
-                                    Source="{svgc:SvgImage /View/WhiteCircle.svg}" />
+                                    Source="{svgc:SvgImage /icons/WhiteCircle.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -1071,7 +1071,7 @@
                                 <Image
                                     Width="7"
                                     Height="7"
-                                    Source="{svgc:SvgImage /View/BlackCircle.svg}" />
+                                    Source="{svgc:SvgImage /icons/BlackCircle.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -1093,7 +1093,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/GreyCircle.svg}" />
+                                    Source="{svgc:SvgImage /icons/GreyCircle.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -1115,7 +1115,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/CircleWithGreyEdge.svg}" />
+                                    Source="{svgc:SvgImage /icons/CircleWithGreyEdge.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -1134,7 +1134,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/CircleWithNumber.svg}" />
+                                Source="{svgc:SvgImage /icons/CircleWithNumber.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -1167,7 +1167,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                    Source="{svgc:SvgImage /icons/ArrowLeft.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -1188,7 +1188,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowLeft.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowLeft.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1210,7 +1210,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowRight.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowRight.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1232,7 +1232,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowUp.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowUp.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1254,7 +1254,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/ArrowDown.svg}" />
+                                        Source="{svgc:SvgImage /icons/ArrowDown.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1273,7 +1273,7 @@
                                 <Image
                                     Width="15"
                                     Height="15"
-                                    Source="{svgc:SvgImage /View/LongArrow.svg}" />
+                                    Source="{svgc:SvgImage /icons/LongArrow.svg}" />
                                 <TextBlock
                                     Grid.Column="1"
                                     VerticalAlignment="Center"
@@ -1310,7 +1310,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/SmallArrowLeftDown.svg}" />
+                                        Source="{svgc:SvgImage /icons/SmallArrowLeftDown.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1332,7 +1332,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/SmallArrowRightDown.svg}" />
+                                        Source="{svgc:SvgImage /icons/SmallArrowRightDown.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1354,7 +1354,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/SmallArrowLeftUp.svg}" />
+                                        Source="{svgc:SvgImage /icons/SmallArrowLeftUp.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1376,7 +1376,7 @@
                                     <Image
                                         Width="15"
                                         Height="15"
-                                        Source="{svgc:SvgImage /View/SmallArrowRightUp.svg}" />
+                                        Source="{svgc:SvgImage /icons/SmallArrowRightUp.svg}" />
                                     <TextBlock
                                         Grid.Column="1"
                                         VerticalAlignment="Center"
@@ -1400,7 +1400,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/Character.svg}" />
+                                Source="{svgc:SvgImage /icons/Character.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -1422,7 +1422,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/GreySquare.svg}" />
+                                Source="{svgc:SvgImage /icons/GreySquare.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -1444,7 +1444,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/Star.svg}" />
+                                Source="{svgc:SvgImage /icons/Star.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -1462,7 +1462,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/GreyLine.svg}" />
+                                Source="{svgc:SvgImage /icons/GreyLine.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -1494,7 +1494,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/Cage.svg}" />
+                                Source="{svgc:SvgImage /icons/Cage.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -1530,7 +1530,7 @@
                             <Image
                                 Width="15"
                                 Height="15"
-                                Source="{svgc:SvgImage /View/GreyCell.svg}" />
+                                Source="{svgc:SvgImage /icons/GreyCell.svg}" />
                             <TextBlock
                                 Grid.Column="1"
                                 VerticalAlignment="Center"

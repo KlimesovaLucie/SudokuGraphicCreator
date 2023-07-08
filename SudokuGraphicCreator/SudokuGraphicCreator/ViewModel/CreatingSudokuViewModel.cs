@@ -490,7 +490,7 @@ namespace SudokuGraphicCreator.ViewModel
 
         private void CreateGivenNumberButton()
         {
-            GivenNumberButton = new ElementButton(Resources.MenuInsertNumber, "/Icons/Number.svg", this);
+            GivenNumberButton = new ElementButton(Resources.MenuInsertNumber, "/icons/Number.svg", this);
         }
 
         private void CreateGridNumber()
